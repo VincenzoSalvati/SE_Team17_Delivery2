@@ -18,7 +18,7 @@ public class ShowActivitiesBrowseService {
         try {
             Statement stmt = this.con.createStatement();
             ResultSet rs;
-            rs = stmt.executeQuery("SELECT * FROM Activity");
+            rs = stmt.executeQuery("SELECT * FROM Activity WHERE ewo=false");
             while (rs.next()) {
                 JSONRow = activityJSONFormat.replace("{ID}", Integer.toString(rs.getInt(1)));
                 JSONRow = JSONRow.replace("{WEEK}", Integer.toString(rs.getInt(2)));

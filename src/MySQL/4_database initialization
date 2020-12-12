@@ -18,6 +18,12 @@ insert into Activity (id, week, ewo, site, type, estim_time)
 values (2, 1, false, 'Morra - Painting', 'Hydraulic', 250);
 insert into Activity (id, week, ewo, site, type, estim_time)
 values (3, 1, false, 'Fisciano - Molding', 'Electronics', 90);
+insert into Activity (id, week, ewo, site, type, estim_time)
+values (4, 1, true, 'Fisciano - Molding', 'Mechanical', 120);
+insert into Activity (id, week, ewo, site, type, estim_time)
+values (5, 1, true, 'Nusco - Carpentery', 'Electric', 30);
+insert into Activity (id, week, ewo, site, type, estim_time)
+values (6, 1, true, 'Morra - Painting', 'Hydraulic', 250);
 
 #Insert Specifications
 insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
@@ -36,6 +42,19 @@ insert into Specifications (id, work_note, int_des, id_activity, week_activity, 
 values (3,
         'The plant is closed from 00/00/23 to 00/00/23; <br> On the remaining days, it is possible to intervene only after 13:00 ',
         'Replacement of robot 23 welding cables', 3, 1, false);
+insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
+values (4,
+        'The plant is closed from 00/00/20 to 00/00/20; On the remaining days, it is possible to intervene only after 10:00 ',
+        'Replacement of robot 20 welding cables', 4, 1, true);
+insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
+values (5,
+        'The plant is closed from 00/00/21 to 00/00/21; On the remaining days, it is possible to intervene only after 11:00 ',
+        'Replacement of robot 21 welding cables', 5, 1, true);
+insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
+values (6,
+        'The plant is closed from 00/00/22 to 00/00/22; On the remaining days, it is possible to intervene only after 12:00 ',
+        'Replacement of robot 22 welding cables', 6, 1, true);
+
 
 #Insert Skills
 insert into Skill (id, name)
@@ -80,6 +99,32 @@ values (3, 3);
 insert into Need (specifications, skill)
 values (3, 4);
 
+insert into Need (specifications, skill)
+values (4, 0);
+insert into Need (specifications, skill)
+values (4, 1);
+insert into Need (specifications, skill)
+values (4, 2);
+insert into Need (specifications, skill)
+values (4, 3);
+
+insert into Need (specifications, skill)
+values (5, 0);
+insert into Need (specifications, skill)
+values (5, 3);
+insert into Need (specifications, skill)
+values (5, 4);
+
+insert into Need (specifications, skill)
+values (6, 0);
+insert into Need (specifications, skill)
+values (6, 1);
+insert into Need (specifications, skill)
+values (6, 2);
+insert into Need (specifications, skill)
+values (6, 4);
+
+
 #Insert Maintainer
 insert into Maintainer (id, name)
 values (0, 'Pippo');
@@ -116,6 +161,10 @@ insert into InProgress (specifications, maintainer, stateSpecif, stateDep, state
 values (0, 0, 'Closed', 'Received', 'Sent');
 insert into InProgress (specifications, maintainer, stateSpecif, stateDep, stateMaint)
 values (1, 2, 'NotStarted', 'Sent', 'Received');
+insert into InProgress (specifications, maintainer, stateSpecif, stateDep, stateMaint)
+values (4, 0, 'Closed', 'Received', 'Sent');
+insert into InProgress (specifications, maintainer, stateSpecif, stateDep, stateMaint)
+values (5, 2, 'NotStarted', 'Sent', 'Received');
 
 
 #Insert Availability Pippo
