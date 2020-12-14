@@ -102,6 +102,16 @@ body {
     bottom: 45px;
 }
 
+.imgClock {
+    height: 120px;
+    width: 120px;
+}
+
+.imgDrill {
+    height: 120px;
+    width: 120px;
+}
+
 .button {
     border: none;
     margin: 0 auto;

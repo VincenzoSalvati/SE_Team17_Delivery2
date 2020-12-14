@@ -79,6 +79,11 @@ body {
     padding: 1em;
 }
 
+.imgFolder{
+    height: 120px;
+    width: 120px;
+}
+
 .button {
     border: none;
     padding: 10px 3em;
