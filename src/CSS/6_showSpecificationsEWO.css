@@ -15,16 +15,13 @@ body {
 }
 
 .textWeek{
-    padding-left: 50px;
+    padding-left: 82px;
+    padding-bottom: 3px;
 }
 
 .imageHome {
     text-align: end;
     margin-right: 50px;
-}
-
-.textWeek{
-    padding-left: 50px;
 }
 
 .tableSpecificationsEdit {
