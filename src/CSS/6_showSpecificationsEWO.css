@@ -14,19 +14,20 @@ body {
     color: white;
 }
 
-.textWeek{
+.textWeek {
     padding-left: 82px;
     padding-bottom: 3px;
 }
 
 .imageHome {
     text-align: end;
-    margin-right: 50px;
+    margin-right: 76px;
+    margin-bottom: 5px;
 }
 
-.imgHome{
-    width:50px;
-    height:50px;
+.imgHome {
+    width: 50px;
+    height: 50px;
 }
 
 .tableSpecificationsEdit {
