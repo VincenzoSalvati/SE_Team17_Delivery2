@@ -28,6 +28,10 @@ body {
     padding: 15px 0;
 }
 
+.notEWObut {
+    margin-left: 5px;
+}
+
 .panel {
     width: 100%;
 }
