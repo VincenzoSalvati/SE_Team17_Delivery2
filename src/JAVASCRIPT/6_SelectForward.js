@@ -4,6 +4,7 @@ function selectForward() {
         var $id = $row.find(".id").text();
         var $strActivity = $row.find(".strActivity").text();
         var $strWorkNote = $row.find(".strWorkNote").text();
-        location.href = "7_assignEWO.html?activity=" + activity + "&week=" + week + "&estimatedTime=" + estimatedTime + "&specifications=" + $id + "&strActivity=" + $strActivity + "&strWorkNote=" + $strWorkNote + "&skills=" + skills;
+        var $estmTime = $row.find(".strEstmTime").text();
+        location.href = "7_assignEWO.html?activity=" + activity + "&week=" + week + "&estimatedTime=" + $estmTime + "&specifications=" + $id + "&strActivity=" + $strActivity + "&strWorkNote=" + $strWorkNote + "&skills=" + skills;
     });
 }

@@ -70,6 +70,7 @@ class BrowseController {
         let staticHtml = $("#specificationsEWO-row-template").html();
         let activityNav;
         let workNote;
+        let estimationTime;
         /* Bind obj data to the template, then append to table body */
         $.each(data, function (index, obj) {
             let row = staticHtml;
@@ -81,11 +82,13 @@ class BrowseController {
             row = row.replace(/{Id_activity}/ig, activityNav);
             row = row.replace(/{Week_activity}/ig, obj.week_activity);
             row = row.replace(/{Ewo_activity}/ig, obj.ewo_activity);
-            row = row.replace(/{Estimate_tr}/ig, obj.estimate_tr);
+            estimationTime=obj.estimate_tr
+            row = row.replace(/{Estimate_tr}/ig, estimationTime);
             $('#specificationsEWO-rows').append(row);
         });
         $("#strAct").append("Activity to assign:  " + activityNav);
         $("#strWorkNot").append(workNote);
+        $("#strEstTim").append(estimationTime);
 
         /* When empty specifications */
         if (data.length === 0) {
@@ -107,7 +110,6 @@ class BrowseController {
                 .append("<img class=\"check\" id=\"" + obj.id + "\" src = \"../img/check.png\">");
 
         });
-
 
         /* When empty specifications */
         if (data.length === 0) {
