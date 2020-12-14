@@ -36,4 +36,10 @@ public class ShowActivitiesEWOBrowseServiceJSP {
 
     }
 
+    public String makeJSON_showActivitiesEWO(){
+        return "[{\"id\":\"4\",\"area\":\"Fisciano - Molding\",\"type\":\"Mechanical\",\"estim_time\":\"120\"}," +
+                "{\"id\":\"5\",\"area\":\"Nusco - Carpentery\",\"type\":\"Electric\",\"estim_time\":\"30\"}," +
+                "{\"id\":\"6\",\"area\":\"Morra - Painting\",\"type\":\"Hydraulic\",\"estim_time\":\"250\"}]";
+    }
+
 }
