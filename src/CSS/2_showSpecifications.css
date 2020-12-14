@@ -2,14 +2,14 @@ body {
     margin: 0;
 }
 
-.nav {
+.navi {
     background-color: black;
     padding: 2em;
     text-align: left;
     height: 100px;
 }
 
-.navElem {
+.naviElem {
     font-size: 32px;
     color: white;
     padding-left: 2em
@@ -47,22 +47,21 @@ body {
 .textCol {
     font-size: 32px;
     font-weight: bold;
+    text-align: center;
 }
 
 .textRow {
-    color: gray;
     font-size: large;
 }
 
 .image {
-    float: left;
-    padding-right: 2em;
-    clear: both
+    text-align: center;
+    clear: both;
 }
 
 .textImage {
-    float: left;
-    padding-top: 1em;
+    text-align: center;
+    padding: 1em;
 }
 
 .button {

@@ -4,13 +4,13 @@ body {
 
 }
 
-.nav {
+.navi {
     background-color: black;
     padding: 2em;
     text-align: left;
 }
 
-.navElem {
+.naviElem {
     font-size: 28px;
     color: white;
     padding-left: 2em

@@ -1,12 +1,10 @@
-const JAVA_TOMCAT_HOST = "192.168.1.5:8080";
-
 // noinspection JSJQueryEfficiency
 class BrowseController {
 
     constructor() {
     }
 
-    initBrowseView() {
+    initBrowseView(week) {
         let microServiceEndpoints = [
             // 0) JSON Static, we used it for defining the data interface of a generic record for updating
             "jsonprototypes/address-book-record-prototype.json",
@@ -15,7 +13,7 @@ class BrowseController {
             // 2) A PHP implementation of JSON service
             "services/address-book-record-get.php?activity=",
             // 3) A Java JSP implementation of JSON service
-            "http://" + JAVA_TOMCAT_HOST + "/Esame/1_showActivities.jsp"
+            "http://" + JAVA_TOMCAT_HOST + "/Esame/1_showActivities.jsp?week=" + week
         ];
         let selectedMicroServiceEndpoint = microServiceEndpoints[3];
         let controller = this;

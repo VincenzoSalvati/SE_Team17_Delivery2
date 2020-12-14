@@ -1,19 +1,19 @@
+// noinspection JSJQueryEfficiency
 class BrowseController {
 
     constructor() {
-
     }
 
-    initBrowseView(activity, week, specifications) {
+    initBrowseView(week) {
         let microServiceEndpoints = [
             // 0) JSON Static, we used it for defining the data interface of a generic record for updating
             "jsonprototypes/address-book-record-prototype.json",
             // 1) JSON Static, we used it for defining the data interface of a new record for adding
             "jsonprototypes/address-book-new-record-prototype.json",
             // 2) A PHP implementation of JSON service
-            "services/address-book-record-get.php?activity=" + activity,
+            "services/address-book-record-get.php?activity=",
             // 3) A Java JSP implementation of JSON service
-            "http://" + JAVA_TOMCAT_HOST + "/Esame/3_assignMaintainer.jsp?activity=" + activity + "&week=" + week + "&specifications=" + specifications
+            "http://" + JAVA_TOMCAT_HOST + "/Esame/7_showTickets.jsp?week=" + week
         ];
         let selectedMicroServiceEndpoint = microServiceEndpoints[3];
         let controller = this;
@@ -24,24 +24,25 @@ class BrowseController {
         }).fail(function () {
             controller.showMessageStatus("red", "Error while requesting service: " + controller.serviceEndPoint);
         });
+
         this.showMessageStatus("black", "Requesting data from service: " + this.serviceEndPoint);
     }
 
     renderGUI(data) {
-        let staticHtml = $("#maintainer-row-template").html();
+        let controller = this;
+        let staticHtml = $("#ewo-row-template").html();
         $.each(data, function (index, obj) {
             let row = staticHtml;
-            row = row.replace(/{Id}/ig, obj.id);
-            row = row.replace(/{Maint}/ig, obj.maint);
-            row = row.replace(/{Skills}/ig, obj.skills);
-            row = row.replace(/{Mon}/ig, obj.mon);
-            row = row.replace(/{Tue}/ig, obj.tue);
-            row = row.replace(/{Wed}/ig, obj.wed);
-            row = row.replace(/{Thu}/ig, obj.thu);
-            row = row.replace(/{Fri}/ig, obj.fri);
-            row = row.replace(/{Sat}/ig, obj.sat);
-            row = row.replace(/{Sun}/ig, obj.sun);
-            $('#maintainer-rows').append(row);
+            row = row.replace(/{Id_EWO}/ig, obj.id);
+            row = row.replace(/{Area}/ig, obj.area);
+            row = row.replace(/{Type}/ig, obj.type);
+            row = row.replace(/{EstimatedTime}/ig, obj.estim_time);
+            row = row.replace(/{Department}/ig, obj.department);
+            row = row.replace(/{Maintainer}/ig, obj.maintainer);
+            row = row.replace(/{State}/ig, obj.state);
+            row = row.replace()
+            $('#ewo-rows').append(row);
+
         });
         if (data.length === 0) {
             $("tfoot :first-child").hide();
@@ -50,6 +51,9 @@ class BrowseController {
     }
 
     showMessageStatus(color, message) {
-        $("#request-status").css("color", color).html(message);
+        $("#ewo-request-status").css("color", color);
+        $("#ewo-request-status").html(message);
+        $("#state-request-status").css("color", color);
+        $("#state-request-status").html(message);
     }
 }

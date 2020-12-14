@@ -1,4 +1,5 @@
 var current_time = estimatedTime;
+var ass_time = 0;
 
 //dizionario che memorizza i minuti selezionati
 var dict = [];
@@ -43,10 +44,12 @@ function selectHour(checkId, d) {
             dict[id] = d;
             id++;
             current_time -= parseInt(val);
+            ass_time += parseInt(val);
             if (current_time > 0) {
-                document.getElementById("totalMin").innerHTML = current_time;
+                document.getElementById("toBeAssMin").innerHTML = current_time;
+                document.getElementById("assMin").innerHTML = ass_time;
             } else if (current_time <= 0) {
-                document.getElementById("totalMin").innerHTML = "Time expired";
+                document.getElementById("toBeAssMin").innerHTML = "Time expired";
                 disableAllButton();
                 //rendo disponibile il button Forward
                 document.querySelector('.btn-primary').style.pointerEvents = 'auto';
@@ -218,7 +221,12 @@ function updateDB() {
             avail_16to17: avail_16to17
         }, function (data) {
         }).done(function () {
-        location.href = "1_showActivities.html?week=" + week;
+        console.log(activity)
+        console.log(week)
+        console.log(specifications)
+        console.log(maintainer)
+        console.log(day)
+        location.href = "6_assignEWO.html?activity=" + activity + "&week=" + week + "&time=" + estimatedTime + "&specifications=" + specifications + "&day=" + day + "&strActivity=" + stringActivity + "&strWorkNote=" + stringWorkNote + "&strSkills=" + stringSkills;
     }).fail(function () {
         alert("Error while updating database");
     });

@@ -14,72 +14,79 @@ body {
     padding-left: 2em
 }
 
+.textStringActivity {
+    padding-left: 10em;
+}
+
 .panel {
     width: 100%;
+}
+
+.panelButton {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .panelElem {
     width: 90%;
     margin: auto;
-    padding: 1em;
+    padding: 10px;
+}
+
+.panelElemButton {
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+}
+
+.panelElemWorkNote {
+    width: 95%;
+    margin: auto;
+    padding-bottom: 20px;
+    text-align: start;
+}
+
+.panelElemSkills {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 20px;
+    text-align: start;
+}
+
+.cursor {
+    cursor: pointer
+}
+
+.check {
+    visibility: hidden;
+    margin-left: 10px;
+    width: 20px;
+}
+
+.but-send {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.but-clear {
+    margin-left: 20px;
+}
+
+.estimTimeText {
+    margin-left: 5px;
+    text-align: start;
+}
+
+.firstP {
     margin-top: 10px;
 }
 
-.panelEWO {
-    width: 100%;
+.alert {
+    margin-top: 20px;
 }
-
-.idEwo {
-    width: 5%;
-    text-align: center;
-}
-
-.areaEwo {
-    width: 40%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 15px;
-}
-
-.typeEwo {
-    width: 25%;
-    padding: 10px;
-
-}
-
-.timeEwo {
-    width: 30%;
-    padding: 10px;
-
-}
-
-.butEWO {
-    padding: 10px;
-    text-align: center;
-
-}
-
-.but-close {
-    background: url(../img/close.png);
-    height: 44px;
-    width: 44px;
-    border: none;
-}
-
-.but-close:focus {
-    outline: 0;
-}
-
-.title-ewo {
-    padding-top: 10px;
-    padding-left: 10px;
-}
-
-.imageWarining {
-    width: 30px;
-}
-
 
 .h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
     font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -162,16 +169,26 @@ html * {
     font-size: medium;
 }
 
+.card-workspace {
+    width: 50%;
+    font-size: medium;
+}
+
+.card-skill {
+    width: 50%;
+    font-size: medium;
+}
+
 .table thead th {
     font-size: .95rem;
     font-weight: 500;
     border-top-width: 0;
-    vertical-align: bottom;
     border-bottom: 2px solid rgba(0, 0, 0, .06);
+
 }
 
 .table td, .table th {
     padding: .75rem;
-    vertical-align: top;
-    border-top: 1px solid rgba(0, 0, 0, .06);
+    border-top-width: 0;
+
 }

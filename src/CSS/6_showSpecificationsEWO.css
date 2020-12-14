@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+}
+
+.navi {
+    background-color: black;
+    padding: 2em;
+    text-align: left;
+    height: 100px;
+}
+
+.naviElem {
+    font-size: 32px;
+    color: white;
+    padding-left: 2em
+}
+
+.tableSpecificationsEdit {
+    border-spacing: 0;
+    width: 100%
+}
+
+.panel {
+    width: 30%;
+    margin-top: 1em;
+}
+
+.panelElem {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+}
+
+.panelElemIntDesc {
+    width: 40%;
+}
+
+.panelElemSkills {
+    width: 80%;
+}
+
+.panelElemSkillsCurrent {
+    margin-top: 40px;
+    width: 80%;
+    text-align: center;
+}
+
+.panelElemSkillsCurrentList {
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+    margin: auto;
+    border: #d9d9d9 1px solid;
+}
+
+.panelElemEditIntDesc {
+    width: 60%;
+}
+
+.textCol {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.textRow {
+    font-size: large;
+}
+
+.image {
+    text-align: center;
+    clear: both;
+}
+
+.textImage {
+    text-align: center;
+    padding: 1em;
+}
+
+.check {
+    visibility: hidden;
+    position: relative;
+    width: 30px;
+    right: 35px;
+    bottom: 45px;
+}
+
+.button {
+    border: none;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: black;
+    border-radius: 5px;
+    display: block;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    clear: both;
+}
+
+.buttonForward {
+    width: 30%;
+}
+
+.buttonForward:hover {
+    background-color: orange;
+    border: 2px solid black;
+    color: black;
+}
+
+.buttonEditTime {
+    width: 50%;
+}
+
+.buttonEditTime:hover {
+    background-color: orange;
+    border: 2px solid black;
+    color: black;
+}
+
+.buttonSubmit {
+    width: 40%;
+}
+
+.buttonSubmit:hover {
+    background-color: orange;
+    border: 2px solid black;
+    color: black;
+}
+
+.buttonEditIntType {
+    width: 50%;
+}
+
+.buttonEditIntType:hover {
+    background-color: orange;
+    border: 2px solid black;
+    color: black;
+}
+
+.h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+}
+
+/*POP UP*/
+
+/* The popup form - hidden by default */
+.form-popup {
+    width: 500px;
+    display: none;
+    position: fixed;
+    right: 400px;
+    top: 300px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 500px;
+    padding: 20px;
+    background-color: white;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+
+/*POP UP ADD SKILL, modifico lista*/
+
+.list {
+    text-decoration: none;
+    list-style: none;
+}
+
+
+.div2 {
+    margin-top: 60px;
+}
+
+.btn2 {
+    text-decoration: none;
+    display: block;
+    width: 200px;
+    height: 40px;
+    color: wheat;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.3em;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgb(12, 12, 12);
+    box-shadow: hotpink;
+}
+
+.ok_btn {
+    text-decoration: none;
+    width: 200px;
+    height: 40px;
+    color: wheat;
+}

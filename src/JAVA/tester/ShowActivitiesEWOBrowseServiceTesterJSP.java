@@ -1,22 +1,22 @@
 package JAVA.tester;
 
 import JAVA.MySqlDbConnection;
-import JAVA.ShowActivitiesBrowseService;
+import JAVA.ShowActivitiesEWOBrowseServiceJSP;
 
-public class ShowActivitiesBrowseServiceTester {
+public class ShowActivitiesEWOBrowseServiceTesterJSP {
 
     public static void main(String[] args) {
-        String jsonResult;
 
+        String jsonResult;
         MySqlDbConnection db = new MySqlDbConnection();
         db.setDbUser("root");
         db.setDbPassword("admin");
         db.setDbName("Project");
 
-        ShowActivitiesBrowseService service = new ShowActivitiesBrowseService();
-        jsonResult = service.getShowActivitiesBrowseToJSON(db);
-
+        ShowActivitiesEWOBrowseServiceJSP service = new ShowActivitiesEWOBrowseServiceJSP();
+        jsonResult = service.getShowActivitiesEWOBrowseToJSONJSP(db, 1);
         System.out.println(jsonResult);
+
     }
 
 }

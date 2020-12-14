@@ -10,7 +10,7 @@
     db.setDbPassword(dbPassword);
     db.setDbName(dbName);
 
-    ShowActivitiesBrowseService service = new ShowActivitiesBrowseService();
+    ShowActivitiesBrowseServiceJSP service = new ShowActivitiesBrowseServiceJSP();
 
     response.setContentType("application/json");
     response.setHeader("Access-Control-Allow-Origin", "*");

@@ -1,7 +1,16 @@
-const week = 1 //urlParams.get('week')
-const day = "Saturday" //urlParams.get('day')
-const numero = 12//urlParams.get('numero')
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const activity = urlParams.get('activity')
+const week = urlParams.get('week')
+const estimatedTime = urlParams.get('estimatedTime')
+const specifications = urlParams.get('specifications')
+const stringActivity = urlParams.get('strActivity')
+const stringWorkNote = urlParams.get('strWorkNote')
+const stringSkills = urlParams.get('skills')
 
-document.getElementById("week").innerHTML = "Week " + week;
-document.getElementById("giorno").innerHTML = day;
-document.getElementById("numero").innerHTML = numero;
+document.getElementById('strWeek').innerHTML = "WEEK " + week;
+document.getElementById('strWorkNote').innerHTML = stringWorkNote;
+document.getElementById('strActivity').innerHTML = stringActivity;
+document.getElementById('strSkills').innerHTML = stringSkills;
+document.getElementById('totalMin').innerHTML = estimatedTime;
+
