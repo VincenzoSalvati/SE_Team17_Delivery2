@@ -13,7 +13,7 @@ class BrowseController {
             // 2) A PHP implementation of JSON service
             "services/address-book-record-get.php?activity=",
             // 3) A Java JSP implementation of JSON service
-            "http://" + JAVA_TOMCAT_HOST + "/Esame/7_showTickets.jsp?week=" + week
+            "http://" + JAVA_TOMCAT_HOST + "/Esame/8_showTickets.jsp?week=" + week
         ];
         let selectedMicroServiceEndpoint = microServiceEndpoints[3];
         let controller = this;

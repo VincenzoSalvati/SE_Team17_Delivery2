@@ -14,11 +14,21 @@
 </head>
 
 <body>
-<div class="navi">
-    <a class="naviElem" id="strWeek"></a>
-    <a class="naviElem" id="giorno"></a>
-    <a class="naviElem" id="numero"></a>
-    <a class="naviElem textStringActivity" id="strActivity"></a>
+
+<div class="navi panelNavi">
+    <div class="panelNaviElem">
+        <a class="naviElem textWeek" id="strWeek"></a>
+    </div>
+    <div class="panelNaviElem">
+        <a class="naviElem" id="giorno"></a>
+        <a class="naviElem" id="numero"></a>
+    </div>
+    <div class="panelNaviElem panelNaviElemActivity">
+        <a class="naviElem textStringActivity" id="strActivity"></a>
+    </div>
+    <div class="panelNaviElem panelNaviElemImageHome">
+        <img class="imageHome" alt="Home" src="../img/home.png" onclick="comeToHome()">
+    </div>
 </div>
 
 <div class="container-fluid">
@@ -175,6 +185,7 @@
 
 <!-- JavaScript JS -->
 <script src="../JAVASCRIPT/localhost.js"></script>
+<script src="../JAVASCRIPT/comeToHome.js" type="text/javascript"></script>
 <script src="../JAVASCRIPT/7_Constant.js" type="text/javascript"></script>
 <script src="../JAVASCRIPT/7_Date.js" type="text/javascript"></script>
 <script src="../JAVASCRIPT/7_SelectAndUpdateAval.js"></script>

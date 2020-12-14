@@ -7,17 +7,38 @@ body {
 .navi {
     background-color: black;
     padding: 2em;
-    text-align: left;
 }
 
 .naviElem {
     font-size: 28px;
     color: white;
-    padding-left: 2em
 }
 
-.textStringActivity {
-    padding-left: 18em;
+.textWeek{
+    padding-left: 50px;
+}
+
+.panelNavi {
+    width: 100%;
+    height: 120px;
+}
+
+.panelNaviElem {
+    width: 33%;
+    height: 100%;
+    float: left;
+    padding: 15px 0;
+}
+
+.panelNaviElemImageHome{
+    padding: 0;
+}
+
+.imageHome {
+    height: 50px;
+    width: 50px;
+    float: right;
+    margin-right: 20px;
 }
 
 .panel {
@@ -40,12 +61,6 @@ body {
 
 .cursor {
     cursor: pointer
-}
-
-.h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    line-height: 1.5em;
 }
 
 html * {
@@ -141,6 +156,12 @@ html * {
     padding: .75rem;
     vertical-align: top;
     border-top: 1px solid rgba(0, 0, 0, .06);
+}
+
+.h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
 }
 
 

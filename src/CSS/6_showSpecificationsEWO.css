@@ -6,13 +6,25 @@ body {
     background-color: black;
     padding: 2em;
     text-align: left;
-    height: 100px;
+    height: 120px;
 }
 
 .naviElem {
-    font-size: 32px;
+    font-size: 28px;
     color: white;
-    padding-left: 2em
+}
+
+.textWeek{
+    padding-left: 50px;
+}
+
+.imageHome {
+    text-align: end;
+    margin-right: 50px;
+}
+
+.textWeek{
+    padding-left: 50px;
 }
 
 .tableSpecificationsEdit {
@@ -143,12 +155,6 @@ body {
     color: black;
 }
 
-.h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    line-height: 1.5em;
-}
-
 /*POP UP*/
 
 /* The popup form - hidden by default */
@@ -224,4 +230,10 @@ body {
     width: 200px;
     height: 40px;
     color: wheat;
+}
+
+.h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
 }

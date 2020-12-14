@@ -10,7 +10,7 @@ const stringWorkNote = urlParams.get("strWorkNote")
 const perc = urlParams.get("perc")
 const estimatedTime = urlParams.get("time")
 
-document.getElementById("week").innerHTML = "Week " + week;
+document.getElementById("week").innerHTML = "WEEK " + week;
 document.getElementById("strWorkNote").innerHTML = stringWorkNote;
 document.getElementById("strActivity").innerHTML = stringActivity;
 document.getElementById("strPerc").innerHTML = perc + "%";

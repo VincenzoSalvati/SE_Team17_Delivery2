@@ -5,34 +5,48 @@ body {
 .navi {
     background-color: black;
     padding: 2em;
-    text-align: left;
 }
 
 .naviElem {
     font-size: 28px;
     color: white;
-    padding-left: 2em
+}
+
+.panelNavi {
+    width: 100%;
+    height: 120px;
+}
+
+.panelNaviElem {
+    width: 33%;
+    height: 100%;
+    float: left;
+    padding: 15px 0;
+}
+
+.panelNaviElemImageHome{
+    padding: 0;
+}
+
+.imageHome {
+    height: 50px;
+    width: 50px;
+    float: right;
+    margin-right: 20px;
+}
+
+.textWeek{
+    padding-left: 50px;
 }
 
 .panel {
     width: 100%;
 }
 
-.panelButton {
-    padding-right: 2em;
-    float: right;
-}
-
 .panelElem {
     width: 90%;
     margin: auto;
     padding: 10px;
-}
-
-.h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    line-height: 1.5em;
 }
 
 html * {
@@ -126,4 +140,10 @@ html * {
 
 .buttonHome {
     width: 150px;
+}
+
+.h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
 }
