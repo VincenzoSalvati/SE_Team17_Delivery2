@@ -11,4 +11,4 @@ Va cambiata l'assegnazione della variabile JAVA_TOMCAT_HOST, nella directory "sr
 
 ## Database Test
 
-Per utilizzare il proprio database è necessario compilare le variabili stringa nella directory "/src/JAVA/MySqlDbConnection.java" con il driver del database usato, l'indirizzo del proprio database e la relativa porta. Inoltre, è necessario compilare le variabili stringa nella directory "src/JAVA/tester/_0_SetDatabaseTest.java" con l'username, la password e il nome del database.
+Per utilizzare il proprio database è necessario compilare le variabili stringa nella directory "/src/JAVA/MySqlDbConnection.java" con il driver del database usato, l'indirizzo del proprio database e la relativa porta. Inoltre, è necessario compilare le variabili stringa nella directory "src/JAVA/tester/_0_SetDatabaseTest.java" con i campi di autenticazione, username e password, e il nome associato al database.
