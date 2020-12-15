@@ -25,12 +25,12 @@ public class ShowActivitiesEWOBrowseServiceJSPJUnitTest extends TestCase {
         service = new ShowActivitiesEWOBrowseServiceJSP();
     }
 
-    @Order(2)
+    @Order(3)
     protected void tearDown() {
         service = null;
     }
 
-    @Order(3)
+    @Order(2)
     public final void testGetShowSpecificationsBrowseToJSONJSP() {
         String jsonResultExpected = "[{\"id\":\"4\",\"area\":\"Fisciano - Molding\",\"type\":\"Mechanical\",\"estim_time\":\"120\"}," +
                 "{\"id\":\"5\",\"area\":\"Nusco - Carpentery\",\"type\":\"Electric\",\"estim_time\":\"30\"}," +
