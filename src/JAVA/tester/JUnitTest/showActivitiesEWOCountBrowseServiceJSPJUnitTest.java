@@ -2,6 +2,7 @@ package JAVA.tester.JUnitTest;
 
 import JAVA.MySqlDbConnection;
 import JAVA.ShowActivitiesEWOCountBrowseServiceJSP;
+import JAVA.tester._0_SetDatabaseTest;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -20,11 +21,12 @@ public class showActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
     }
 
     protected void setUp() {
-        service = new ShowActivitiesEWOCountBrowseServiceJSP();
+        //Database initialization
         db = new MySqlDbConnection();
-        db.setDbUser("root");
-        db.setDbPassword("admin");
-        db.setDbName("Project");
+        _0_SetDatabaseTest set = new _0_SetDatabaseTest();
+        set.setDatabase(db);
+        //Service initialization
+        service = new ShowActivitiesEWOCountBrowseServiceJSP();
     }
 
     protected void tearDown() {
@@ -35,8 +37,8 @@ public class showActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
         String jsonResultExpected = "[{\"ewo_count\":\"3\"}]";
         String jsonResultActual = service.getShowActivitiesEWOCountBrowseToJSONJSP(db, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
-
         String jsonResultActual2 = service.getShowActivitiesEWOCountBrowseToJSONJSP(db, 2);
         assertNotSame(jsonResultExpected, jsonResultActual2);
     }
+
 }

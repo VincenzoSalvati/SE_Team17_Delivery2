@@ -6,17 +6,13 @@ import JAVA.ShowSpecificationsBrowseServiceJSP;
 public class ShowSpecificationsBrowseServiceJSPTester {
 
     public static void main(String[] args) {
-
-        String jsonResult;
+        //Database initialization
         MySqlDbConnection db = new MySqlDbConnection();
-        db.setDbUser("root");
-        db.setDbPassword("admin");
-        db.setDbName("Project");
-
+        _0_SetDatabaseTest set = new _0_SetDatabaseTest();
+        set.setDatabase(db);
+        //Test JSON
         ShowSpecificationsBrowseServiceJSP service = new ShowSpecificationsBrowseServiceJSP();
-        jsonResult = service.getShowSpecificationsBrowseToJSONJSP(db, 2, 1);
-        System.out.println(jsonResult);
-
+        System.out.println(service.getShowSpecificationsBrowseToJSONJSP(db, 2, 1));
     }
 
 }

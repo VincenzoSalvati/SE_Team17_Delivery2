@@ -2,6 +2,7 @@ package JAVA.tester.JUnitTest;
 
 import JAVA.MySqlDbConnection;
 import JAVA.ShowActivitiesBrowseServiceJSP;
+import JAVA.tester._0_SetDatabaseTest;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -20,11 +21,12 @@ public class showActivitiesBrowseServiceJSPJUnitTest extends TestCase {
     }
 
     protected void setUp() {
-        service = new ShowActivitiesBrowseServiceJSP();
+        //Database initialization
         db = new MySqlDbConnection();
-        db.setDbUser("root");
-        db.setDbPassword("admin");
-        db.setDbName("Project");
+        _0_SetDatabaseTest set = new _0_SetDatabaseTest();
+        set.setDatabase(db);
+        //Service initialization
+        service = new ShowActivitiesBrowseServiceJSP();
     }
 
     protected void tearDown() {
@@ -36,10 +38,8 @@ public class showActivitiesBrowseServiceJSPJUnitTest extends TestCase {
                 "{\"id\":\"1\",\"area\":\"Nusco - Carpentery\",\"type\":\"Electric\",\"estim_time\":\"30\"}," +
                 "{\"id\":\"2\",\"area\":\"Morra - Painting\",\"type\":\"Hydraulic\",\"estim_time\":\"250\"}," +
                 "{\"id\":\"3\",\"area\":\"Fisciano - Molding\",\"type\":\"Electronics\",\"estim_time\":\"90\"}]";
-
         String jsonResultActual = service.getShowActivitiesBrowseToJSONJSP(db, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
-
         String jsonResultActual2 = service.getShowActivitiesBrowseToJSONJSP(db, 1);
         assertNotSame(jsonResultExpected, jsonResultActual2);
     }

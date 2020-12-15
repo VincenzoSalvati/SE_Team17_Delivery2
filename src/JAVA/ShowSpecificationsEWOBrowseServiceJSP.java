@@ -74,7 +74,7 @@ public class ShowSpecificationsEWOBrowseServiceJSP {
 
     }
 
-    public String getSingleSkill(MySqlDbConnection db) {
+    public String getSkills(MySqlDbConnection db) {
 
         String specificationsBrowseEWOJSONFormat = "{\"id\":\"{ID}\",\"skill\":\"{SKILL}\"}";
         StringBuilder specificationsBrowseEWOJSONResult = new StringBuilder();

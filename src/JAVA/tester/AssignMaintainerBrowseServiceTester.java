@@ -4,16 +4,15 @@ import JAVA.AssignMaintainerBrowseService;
 import JAVA.MySqlDbConnection;
 
 public class AssignMaintainerBrowseServiceTester {
+
     public static void main(String[] args) {
-        String jsonResult;
+        //Database initialization
         MySqlDbConnection db = new MySqlDbConnection();
-        db.setDbUser("root");
-        db.setDbPassword("admin");
-        db.setDbName("Project");
-
+        _0_SetDatabaseTest set = new _0_SetDatabaseTest();
+        set.setDatabase(db);
+        //Test JSON
         AssignMaintainerBrowseService service = new AssignMaintainerBrowseService();
-        jsonResult = service.getAssignMaintainerBrowseToJSON(db);
-        System.out.println(jsonResult);
-
+        System.out.println(service.getAssignMaintainerBrowseToJSON(db));
     }
+
 }

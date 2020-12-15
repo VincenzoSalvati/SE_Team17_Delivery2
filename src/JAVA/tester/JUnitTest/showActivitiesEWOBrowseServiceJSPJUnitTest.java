@@ -2,6 +2,7 @@ package JAVA.tester.JUnitTest;
 
 import JAVA.MySqlDbConnection;
 import JAVA.ShowActivitiesEWOBrowseServiceJSP;
+import JAVA.tester._0_SetDatabaseTest;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -20,11 +21,12 @@ public class showActivitiesEWOBrowseServiceJSPJUnitTest extends TestCase {
     }
 
     protected void setUp() {
-        service = new ShowActivitiesEWOBrowseServiceJSP();
+        //Database initialization
         db = new MySqlDbConnection();
-        db.setDbUser("root");
-        db.setDbPassword("admin");
-        db.setDbName("Project");
+        _0_SetDatabaseTest set = new _0_SetDatabaseTest();
+        set.setDatabase(db);
+        //Service initialization
+        service = new ShowActivitiesEWOBrowseServiceJSP();
     }
 
     protected void tearDown() {
@@ -37,7 +39,6 @@ public class showActivitiesEWOBrowseServiceJSPJUnitTest extends TestCase {
                 "{\"id\":\"6\",\"area\":\"Morra - Painting\",\"type\":\"Hydraulic\",\"estim_time\":\"250\"}]";
         String jsonResultActual = service.getShowActivitiesEWOBrowseToJSONJSP(db, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
-
         String jsonResultActual2 = service.getShowActivitiesEWOBrowseToJSONJSP(db, 1);
         assertNotSame(jsonResultExpected, jsonResultActual2);
     }

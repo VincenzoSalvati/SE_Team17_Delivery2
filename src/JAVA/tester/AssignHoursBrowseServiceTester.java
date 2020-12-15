@@ -4,15 +4,15 @@ import JAVA.AssignHoursBrowseService;
 import JAVA.MySqlDbConnection;
 
 public class AssignHoursBrowseServiceTester {
+
     public static void main(String[] args) {
+        //Database initialization
         MySqlDbConnection db = new MySqlDbConnection();
-        db.setDbUser("root");
-        db.setDbPassword("admin");
-        db.setDbName("Project");
-
+        _0_SetDatabaseTest set = new _0_SetDatabaseTest();
+        set.setDatabase(db);
+        //Test JSON
         AssignHoursBrowseService service = new AssignHoursBrowseService();
-        String jsonResult = service.getAssignHoursBrowseToJSON(db);
-        System.out.println(jsonResult);
-
+        System.out.println(service.getAssignHoursBrowseToJSON(db));
     }
+
 }
