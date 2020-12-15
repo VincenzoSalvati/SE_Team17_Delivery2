@@ -34,10 +34,10 @@ public class AssignMaintainerBrowseService {
             getMaintainer(id_maint, name_maint);
 
             //conteggio skills manutentori
-            getSkill(id_maint, skills, 0);
+            getSkill(id_maint, skills, 2);
 
             //conteggio skill totali
-            skillTot = getSkillTot(0);
+            skillTot = getSkillTot(2);
             if (skillTot == -1) return "";
 
             //inizializzazione somme delle ore delle settimane

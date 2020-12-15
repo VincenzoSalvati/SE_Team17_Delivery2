@@ -47,7 +47,10 @@ public class ShowSpecificationsEWOBrowseServiceJSPJUnitTest extends TestCase {
 
     @Order(4)
     public final void testGetSingleSkill() {
-        String jsonResultExpected = "[{\"id\":\"1\",\"skill\":\"Electrical Maintainance\"},{\"id\":\"2\",\"skill\":\"Knowledge of cables types\"},{\"id\":\"4\",\"skill\":\"Knowledge of robot workstation 23\"},{\"id\":\"0\",\"skill\":\"PAV Certification\"},{\"id\":\"3\",\"skill\":\"XYZ-type robot knowledge\"}]";
+        String jsonResultExpected = "[{\"id\":\"1\",\"skill\":\"Electrical Maintainance\"}," +
+                "{\"id\":\"2\",\"skill\":\"Knowledge of cables types\"}," +
+                "{\"id\":\"4\",\"skill\":\"Knowledge of robot workstation 23\"},{\"id\":\"0\",\"skill\":\"PAV Certification\"}," +
+                "{\"id\":\"3\",\"skill\":\"XYZ-type robot knowledge\"}]";
         String jsonResultActual = service.getSkills(db);
         assertEquals(jsonResultExpected, jsonResultActual);
     }
