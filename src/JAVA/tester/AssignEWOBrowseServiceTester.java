@@ -1,7 +1,6 @@
 package JAVA.tester;
 
 import JAVA.AssignEWOBrowseService;
-import JAVA.MySqlDbConnection;
 
 public class AssignEWOBrowseServiceTester {
 
