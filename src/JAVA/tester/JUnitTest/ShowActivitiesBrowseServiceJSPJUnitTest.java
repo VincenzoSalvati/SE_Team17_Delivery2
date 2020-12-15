@@ -5,7 +5,11 @@ import JAVA.ShowActivitiesBrowseServiceJSP;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ShowActivitiesBrowseServiceJSPJUnitTest extends TestCase {
 
     private ShowActivitiesBrowseServiceJSP service;
@@ -15,10 +19,7 @@ public class ShowActivitiesBrowseServiceJSPJUnitTest extends TestCase {
         junit.swingui.TestRunner.run(ShowActivitiesBrowseServiceJSPJUnitTest.class);
     }
 
-    public static Test suite() {
-        return new TestSuite(ShowActivitiesBrowseServiceJSPJUnitTest.class);
-    }
-
+    @Order(1)
     protected void setUp() {
         //Database initialization
         db = MySqlDbConnection.getInstance();
@@ -26,10 +27,12 @@ public class ShowActivitiesBrowseServiceJSPJUnitTest extends TestCase {
         service = new ShowActivitiesBrowseServiceJSP();
     }
 
+    @Order(2)
     protected void tearDown() {
         service = null;
     }
 
+    @Order(3)
     public final void testGetShowActivitiesBrowseToJSONJSP() {
         String jsonResultExpected = "[{\"id\":\"0\",\"area\":\"Fisciano - Molding\",\"type\":\"Mechanical\",\"estim_time\":\"120\"}," +
                 "{\"id\":\"1\",\"area\":\"Nusco - Carpentery\",\"type\":\"Electric\",\"estim_time\":\"30\"}," +
