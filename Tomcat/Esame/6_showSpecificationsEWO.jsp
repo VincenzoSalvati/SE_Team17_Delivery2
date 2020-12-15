@@ -1,12 +1,10 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="JAVA.*" %>
-<%@ include file="config.jsp" %>
+<%@ page import = "JAVA.tester.*" %>
+
 <%
     String jsonResult;
-    MySqlDbConnection db = new MySqlDbConnection();
-    db.setDbUser(dbUser);
-    db.setDbPassword(dbPassword);
-    db.setDbName(dbName);
+    MySqlDbConnection db = MySqlDbConnection.getInstance();
 
     int activity = 0;
     int week = 0;
