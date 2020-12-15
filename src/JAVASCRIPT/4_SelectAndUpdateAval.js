@@ -145,7 +145,7 @@ function initParams() {
     //ultimo elemento del dict
     lastElem = dict[id - 1];
     lastElemValue = parseInt(document.querySelector('.' + lastElem).textContent.replace(" min", ""));
-    lastElemValue = Math.abs(lastElemValue + current_time);
+    lastElemValue = Math.abs(current_time);
     for (var key in dict) {
         switch (dict[key]) {
             case "link_8to9":

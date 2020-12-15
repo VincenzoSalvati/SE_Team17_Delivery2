@@ -13,122 +13,102 @@ var avail_11to12 = 0;
 var avail_14to15 = 0;
 var avail_15to16 = 0;
 var avail_16to17 = 0;
-var id_availability = 0;
+var idMaint;
 
-//serve per il CHECK
-function selectHour(checkId, d) {
-    var check = document.getElementById(checkId);
-    var val = parseInt(document.querySelector('.' + d).textContent.replace(" min", ""));
+let currentIdSelected = null;
+
+function next(checkId,d){
+     var i=0;
+    // code to read selected table row cell data (values).
+    $("#maintainerEWO-rows").on('click','.cell',function(){
+        // get the current row
+        var row = $(this).closest("tr");
+        var colSelected = parseInt(row.find("."+d).html().replaceAll(" min", ""));
+
+        idMaint = row.find("#link_id").html();
+
+        //currentIdSelected è l'id del maintainer scelto per primo
+        //salvo in questa variabile l'id del primo maintainer dunque quando scelgo il prossimo orario
+        //se questo è relativo ad un maintainer diverso, non mi fa selezionare
+        if(idMaint==currentIdSelected || currentIdSelected==null)
+            currentIdSelected = idMaint;
+
+        while(i===0){
+            console.log("VALORE SELEZIOANTO\t"+colSelected+"\nID MAINT\t"+idMaint)
+
+            //mi prendo tutta la riga di valori che poi assegnerò alle variabili 'avail' che userò in 'initParams'
+            avail_8to9 = parseInt(row.find(".link_8to9").html().replaceAll(" min", ""));
+            avail_9to10 = parseInt(row.find(".link_9to10").html().replaceAll(" min", ""));
+            avail_10to11 = parseInt(row.find(".link_10to11").html().replaceAll(" min", ""));
+            avail_11to12 = parseInt(row.find(".link_11to12").html().replaceAll(" min", ""));
+            avail_14to15 = parseInt(row.find(".link_14to15").html().replaceAll(" min", ""));
+            avail_15to16 = parseInt(row.find(".link_15to16").html().replaceAll(" min", ""));
+            avail_16to17 = parseInt(row.find(".link_16to17").html().replaceAll(" min", ""));
+
+            console.log(avail_8to9);
+            console.log(avail_9to10);
+            console.log(avail_10to11);
+            console.log(avail_11to12);
+            console.log(avail_14to15);
+            console.log(avail_15to16);
+            console.log(avail_16to17);
+
+            //una volta selezionato un button di una riga
+            //disableOtherRows();
+            if(idMaint==currentIdSelected) {
+                if(document.getElementById("toBeAssMin").innerHTML != "Time expired")
+                    selectHour(d, colSelected, idMaint);
+                else
+                    alert('Reached time limit');
+            }else{
+                alert('Assign work only to one maintainer at time');
+            }
+            i++;
+        }
+
+    });
+}
+
+function selectHour(d, val, idMaint) {
+
     //se il valore è 0 non posso prenderlo per assegnare del tempo, dunque non mostro
     if (val === 0) {
-        check.style.visibility = 'hidden';
         $('#alertWarning').show('fade');
     } else {
-        if (check.style.visibility === 'visible') {
-            check.style.visibility = 'hidden';
-            //rimuovo il valore deselezionato dal dizionario
-            delete dict[d];
-            current_time += parseInt(val);
-            if (current_time > 0) {
-                document.getElementById("totalMin").innerHTML = current_time;
-            } else if (current_time <= 0) {
-                document.getElementById("totalMin").innerHTML = "Time expired";
-                disableAllButton();
-                //rendo disponibile il button Forward
-                document.querySelector('.btn-primary').style.pointerEvents = 'auto';
-                document.querySelector('.btn-primary').style.opacity = 1;
-            }
-        } else {
-            check.style.visibility = 'visible';
-            //aggiungo il valori selezionati al dizionario
-            dict[id] = d;
-            id++;
-            current_time -= parseInt(val);
-            ass_time += parseInt(val);
-            if (current_time > 0) {
-                document.getElementById("toBeAssMin").innerHTML = current_time;
-                document.getElementById("assMin").innerHTML = ass_time;
-            } else if (current_time <= 0) {
-                document.getElementById("toBeAssMin").innerHTML = "Time expired";
-                disableAllButton();
-                //rendo disponibile il button Forward
-                document.querySelector('.btn-primary').style.pointerEvents = 'auto';
-                document.querySelector('.btn-primary').style.opacity = 1;
-            }
+        //aggiungo il valori selezionati al dizionario
+        dict[id] = d;
+        id++;
+        current_time -= parseInt(val);
+        ass_time += parseInt(val);
+        if (current_time > 0) {
+            document.getElementById("toBeAssMin").innerHTML = current_time;
+            document.getElementById("assMin").innerHTML = ass_time;
+        } else if (current_time <= 0) {
+            document.getElementById("assMin").innerHTML = ass_time;
+            document.getElementById("toBeAssMin").innerHTML = "Time expired";
+            console.log(dict);
+            //rendo disponibile il button Forward
+            document.querySelector('.btn-primary').style.pointerEvents = 'auto';
+            document.querySelector('.btn-primary').style.opacity = 1;
         }
     }
-}
-
-//serve a DISABILITARE la scelta dei minuti
-function disableAllButton(flag) {
-    document.getElementById("link_8to9").style.cursor = 'not-allowed';
-    document.getElementById("link_8to9").style.opacity = 0.5;
-    document.getElementById("link_8to9").style.pointerEvents = 'none';
-
-    document.getElementById("link_9to10").style.cursor = 'not-allowed';
-    document.getElementById("link_9to10").style.opacity = 0.5;
-    document.getElementById("link_9to10").style.pointerEvents = 'none';
-
-    document.getElementById("link_10to11").style.cursor = 'not-allowed';
-    document.getElementById("link_10to11").style.opacity = 0.5;
-    document.getElementById("link_10to11").style.pointerEvents = 'none';
-
-    document.getElementById("link_11to12").style.cursor = 'not-allowed';
-    document.getElementById("link_11to12").style.opacity = 0.5;
-    document.getElementById("link_11to12").style.pointerEvents = 'none';
-
-    document.getElementById("link_14to15").style.cursor = 'not-allowed';
-    document.getElementById("link_14to15").style.opacity = 0.5;
-    document.getElementById("link_14to15").style.pointerEvents = 'none';
-
-    document.getElementById("link_15to16").style.cursor = 'not-allowed';
-    document.getElementById("link_15to16").style.opacity = 0.5;
-    document.getElementById("link_15to16").style.pointerEvents = 'none';
-
-    document.getElementById("link_16to17").style.cursor = 'not-allowed';
-    document.getElementById("link_16to17").style.opacity = 0.5;
-    document.getElementById("link_16to17").style.pointerEvents = 'none';
-}
-
-//serve a RIABILITARE la scelta dei minuti
-function enableAllButton() {
-    document.getElementById("link_8to9").style.cursor = 'default';
-    document.getElementById("link_8to9").style.opacity = 1;
-    document.getElementById("link_8to9").style.pointerEvents = 'auto';
-
-    document.getElementById("link_9to10").style.cursor = 'default';
-    document.getElementById("link_9to10").style.opacity = 1;
-    document.getElementById("link_9to10").style.pointerEvents = 'auto';
-
-    document.getElementById("link_10to11").style.cursor = 'default';
-    document.getElementById("link_10to11").style.opacity = 1;
-    document.getElementById("link_10to11").style.pointerEvents = 'auto';
-
-    document.getElementById("link_11to12").style.cursor = 'default';
-    document.getElementById("link_11to12").style.opacity = 1;
-    document.getElementById("link_11to12").style.pointerEvents = 'auto';
-
-    document.getElementById("link_14to15").style.cursor = 'default';
-    document.getElementById("link_14to15").style.opacity = 1;
-    document.getElementById("link_14to15").style.pointerEvents = 'auto';
-
-    document.getElementById("link_15to16").style.cursor = 'default';
-    document.getElementById("link_15to16").style.opacity = 1;
-    document.getElementById("link_15to16").style.pointerEvents = 'auto';
-
-    document.getElementById("link_16to17").style.cursor = 'default';
-    document.getElementById("link_16to17").style.opacity = 1;
-    document.getElementById("link_16to17").style.pointerEvents = 'auto';
 }
 
 //serve a RESETTARE la scelta dei minuti
 function clearHour() {
     current_time = estimatedTime;
-    for (var i = 0; i < 7; i++) {
-        document.getElementById("checkId" + i).style.visibility = 'hidden';
-        document.getElementById("totalMin").innerHTML = estimatedTime;
+    ass_time = 0;
+
+    document.getElementById("totalMin").innerHTML = estimatedTime;
+    document.getElementById("assMin").innerHTML = "";
+    document.getElementById("toBeAssMin").innerHTML = "";
+    currentIdSelected = null;
+
+    //eliminare contenuto dizionario
+    for (var key in dict) {
+        delete dict[key];
     }
-    enableAllButton();
+
     //disabilito il button Forward
     document.querySelector('.btn-primary').style.pointerEvents = 'none';
     document.querySelector('.btn-primary').style.opacity = 0.5;
@@ -137,18 +117,13 @@ function clearHour() {
 //serve a PREPARARE i parametri per il DB
 // noinspection JSUnfilteredForInLoop
 function initParams() {
-    avail_8to9 = parseInt(document.querySelector('.link_8to9').textContent.replace(" min", ""));
-    avail_9to10 = parseInt(document.querySelector('.link_9to10').textContent.replace(" min", ""));
-    avail_10to11 = parseInt(document.querySelector('.link_10to11').textContent.replace(" min", ""));
-    avail_11to12 = parseInt(document.querySelector('.link_11to12').textContent.replace(" min", ""));
-    avail_14to15 = parseInt(document.querySelector('.link_14to15').textContent.replace(" min", ""));
-    avail_15to16 = parseInt(document.querySelector('.link_15to16').textContent.replace(" min", ""));
-    avail_16to17 = parseInt(document.querySelector('.link_16to17').textContent.replace(" min", ""));
-    id_availability = document.getElementById('link_id').innerHTML;
+    name_day = document.getElementById("giorno").innerHTML;
+    console.log('GIORNO ', name_day)
+
     //ultimo elemento del dict
     lastElem = dict[id - 1];
     lastElemValue = parseInt(document.querySelector('.' + lastElem).textContent.replace(" min", ""));
-    lastElemValue = Math.abs(lastElemValue + current_time);
+    lastElemValue = Math.abs(current_time);
     for (var key in dict) {
         switch (dict[key]) {
             case "link_8to9":
@@ -209,9 +184,21 @@ function initParams() {
 
 //serve a AGGIORNARE il DB
 function updateDB() {
-    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/crud_availability.jsp",
+    console.log('UPDATE DB')
+    console.log(idMaint);
+    console.log(day);
+    console.log(avail_8to9);
+    console.log(avail_9to10);
+    console.log(avail_10to11);
+    console.log(avail_11to12);
+    console.log(avail_14to15);
+    console.log(avail_15to16);
+    console.log(avail_16to17);
+
+    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/crud_availabilityEWO.jsp",
         {
-            id: id_availability,
+            id_maint: idMaint,
+            day: day,
             avail_8to9: avail_8to9,
             avail_9to10: avail_9to10,
             avail_10to11: avail_10to11,
@@ -221,12 +208,7 @@ function updateDB() {
             avail_16to17: avail_16to17
         }, function (data) {
         }).done(function () {
-        console.log(activity)
-        console.log(week)
-        console.log(specifications)
-        console.log(maintainer)
-        console.log(day)
-        location.href = "6_assignEWO.html?activity=" + activity + "&week=" + week + "&time=" + estimatedTime + "&specifications=" + specifications + "&day=" + day + "&strActivity=" + stringActivity + "&strWorkNote=" + stringWorkNote + "&strSkills=" + stringSkills;
+        //location.href = "1_showActivities.html?week=" + week;
     }).fail(function () {
         alert("Error while updating database");
     });

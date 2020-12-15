@@ -53,7 +53,6 @@ class BrowseController {
             row = row.replace(/{h15to16}/ig, obj.h15to16);
             row = row.replace(/{h16to17}/ig, obj.h16to17);
             $('#maintainerEWO-rows').append(row);
-
         });
         if (data.length === 0) {
             $("tfoot :first-child").hide();

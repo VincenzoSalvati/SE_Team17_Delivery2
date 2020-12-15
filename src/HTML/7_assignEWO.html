@@ -10,6 +10,7 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" rel="stylesheet">
     <link href="../CSS/7_assignEWO.css" rel="stylesheet">
 
+
     <title>Assign hours for EWO</title>
 </head>
 
@@ -72,49 +73,49 @@
                                     <td>{Skills}</td>
                                     <td class="cell">
                                         <a class="link_8to9 cursor" href="#" id="link_8to9"
-                                           onclick="selectHour('checkId0', 'link_8to9')">
+                                           onclick="next('checkId0', 'link_8to9')">
                                             {h8to9} min
                                         </a>
                                         <img class="check" id="checkId0" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_9to10 cursor" href="#" id="link_9to10"
-                                           onclick="selectHour('checkId1', 'link_9to10')">
+                                           onclick="next('checkId1', 'link_9to10')">
                                             {h9to10} min
                                         </a>
                                         <img class="check" id="checkId1" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_10to11 cursor" href="#" id="link_10to11"
-                                           onclick="selectHour('checkId2', 'link_10to11')">
+                                           onclick="next('checkId2', 'link_10to11')">
                                             {h10to11} min
                                         </a>
                                         <img class="check" id="checkId2" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_11to12 cursor" href="#" id="link_11to12"
-                                           onclick="selectHour('checkId3', 'link_11to12')">
+                                           onclick="next('checkId3', 'link_11to12')">
                                             {h11to12} min
                                         </a>
                                         <img class="check" id="checkId3" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_14to15 cursor" href="#" id="link_14to15"
-                                           onclick="selectHour('checkId4', 'link_14to15')">
+                                           onclick="next('checkId4', 'link_14to15')">
                                             {h14to15} min
                                         </a>
                                         <img class="check" id="checkId4" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_15to16 cursor" href="#" id="link_15to16"
-                                           onclick="selectHour('checkId5', 'link_15to16')">
+                                           onclick="next('checkId5', 'link_15to16')">
                                             {h15to16} min
                                         </a>
                                         <img class="check" id="checkId5" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_16to17 cursor" href="#" id="link_16to17"
-                                           onclick="selectHour('checkId6', 'link_16to17')">
+                                           onclick="next('checkId6', 'link_16to17')">
                                             {h16to17} min
                                         </a>
                                         <img class="check" id="checkId6" src="../img/check.png">
@@ -194,9 +195,9 @@
 <script type="application/javascript">
     $(document).ready(function () {
         $('#forward').click(function () {
-            $('#alert').show('fade');
             initParams();
             updateDB();
+            $('#alert').show('fade');
         });
         $('#linkClose').click(function () {
             $('#alert').hide('fade');
