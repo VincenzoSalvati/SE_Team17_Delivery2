@@ -25,12 +25,12 @@ public class ShowActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
         service = new ShowActivitiesEWOCountBrowseServiceJSP();
     }
 
-    @Order(2)
+    @Order(3)
     protected void tearDown() {
         service = null;
     }
 
-    @Order(3)
+    @Order(2)
     public final void testGetShowActivitiesEWOCountBrowseToJSONJSP() {
         String jsonResultExpected = "[{\"ewo_count\":\"3\"}]";
         String jsonResultActual = service.getShowActivitiesEWOCountBrowseToJSONJSP(db, 1);
