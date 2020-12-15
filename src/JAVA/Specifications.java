@@ -1,7 +1,5 @@
 package JAVA;
 
-import JAVA.tester.MySqlDbConnection;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 

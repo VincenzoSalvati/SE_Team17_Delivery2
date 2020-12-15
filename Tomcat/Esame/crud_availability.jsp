@@ -1,6 +1,5 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="JAVA.*" %>
-<%@ page import="JAVA.tester.*" %>
 
 <%
     MySqlDbConnection db = MySqlDbConnection.getInstance();

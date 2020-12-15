@@ -1,7 +1,7 @@
 package JAVA.tester.JUnitTest;
 
 import JAVA.ShowSpecificationsEWOBrowseServiceJSP;
-import JAVA.tester.MySqlDbConnection;
+import JAVA.MySqlDbConnection;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

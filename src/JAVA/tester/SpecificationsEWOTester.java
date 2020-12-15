@@ -1,5 +1,6 @@
 package JAVA.tester;
 
+import JAVA.MySqlDbConnection;
 import JAVA.SpecificationsEWO;
 
 public class SpecificationsEWOTester {

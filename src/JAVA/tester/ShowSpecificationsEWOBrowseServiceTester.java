@@ -1,5 +1,6 @@
 package JAVA.tester;
 
+import JAVA.MySqlDbConnection;
 import JAVA.ShowSpecificationsEWOBrowseService;
 
 public class ShowSpecificationsEWOBrowseServiceTester {
