@@ -25,12 +25,12 @@ public class AssignMaintainerBrowseServiceJSPJUnitTest extends TestCase {
         service = new AssignMaintainerBrowseServiceJSP();
     }
 
-    @Order(2)
+    @Order(3)
     protected void tearDown() {
         service = null;
     }
 
-    @Order(3)
+    @Order(2)
     public final void testGetAssignMaintainerBrowseToJSONJSP() {
         String jsonResultExpected = "[{\"id\":\"0\",\"maint\":\"Pippo\",\"skills\":\"2/4\",\"mon\":\"50\",\"tue\":\"51\",\"wed\":\"53\",\"thu\":\"42\",\"fri\":\"50\",\"sat\":\"46\",\"sun\":\"48\"}," +
                 "{\"id\":\"1\",\"maint\":\"Paperino\",\"skills\":\"3/4\",\"mon\":\"45\",\"tue\":\"44\",\"wed\":\"47\",\"thu\":\"32\",\"fri\":\"50\",\"sat\":\"44\",\"sun\":\"39\"}," +
