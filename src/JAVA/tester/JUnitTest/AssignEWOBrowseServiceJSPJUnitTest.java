@@ -36,5 +36,6 @@ public class AssignEWOBrowseServiceJSPJUnitTest extends TestCase {
         String jsonResultActual2 = service.getAssignEWOBrowseToJSONJSP(db, 5, 1, 5, "Tuesday");
         assertNotSame(jsonResultExpected, jsonResultActual2);
     }
+
 }
 

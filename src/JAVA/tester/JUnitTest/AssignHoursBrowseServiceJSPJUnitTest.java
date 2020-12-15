@@ -8,7 +8,7 @@ import junit.framework.TestSuite;
 
 public class AssignHoursBrowseServiceJSPJUnitTest extends TestCase {
 
-    private  AssignHoursBrowseServiceJSP service;
+    private AssignHoursBrowseServiceJSP service;
     private MySqlDbConnection db;
 
     public static void main(String[] args) {
@@ -25,6 +25,7 @@ public class AssignHoursBrowseServiceJSPJUnitTest extends TestCase {
         //Service initialization
         service = new AssignHoursBrowseServiceJSP();
     }
+
     protected void tearDown() {
         service = null;
     }
