@@ -1,7 +1,6 @@
 package JAVA.tester;
 
 import JAVA.AssignHoursBrowseService;
-import JAVA.MySqlDbConnection;
 
 public class AssignHoursBrowseServiceTester {
 
