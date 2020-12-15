@@ -1,6 +1,6 @@
 package JAVA.tester.JUnitTest;
 
-import JAVA.MySqlDbConnection;
+import JAVA.tester.MySqlDbConnection;
 import JAVA.ShowActivitiesEWOCountBrowseServiceJSP;
 import JAVA.tester._0_SetDatabaseTest;
 import junit.framework.Test;
