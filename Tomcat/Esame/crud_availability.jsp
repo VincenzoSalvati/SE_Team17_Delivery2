@@ -1,12 +1,9 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="JAVA.*" %>
-<%@ include file="config.jsp" %>
+<%@ page import = "JAVA.tester.*" %>
 
 <%
-    MySqlDbConnection db = new MySqlDbConnection();
-    db.setDbUser(dbUser);
-    db.setDbPassword(dbPassword);
-    db.setDbName(dbName);
+    MySqlDbConnection db = MySqlDbConnection.getInstance();
 
     int id = 0;
     int avail_8to9 = 0;
