@@ -22,7 +22,7 @@ public class ShowSpecificationsBrowseServiceJSPJUnitTest extends TestCase {
 
     protected void setUp() {
         //Database initialization
-        MySqlDbConnection db = MySqlDbConnection.getInstance();
+        db = MySqlDbConnection.getInstance();
         //Service initialization
         service = new ShowSpecificationsBrowseServiceJSP();
     }
