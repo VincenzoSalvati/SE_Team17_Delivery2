@@ -22,9 +22,7 @@ public class showActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
 
     protected void setUp() {
         //Database initialization
-        db = new MySqlDbConnection();
-        _0_SetDatabaseTest set = new _0_SetDatabaseTest();
-        set.setDatabase(db);
+        MySqlDbConnection db = MySqlDbConnection.getInstance();
         //Service initialization
         service = new ShowActivitiesEWOCountBrowseServiceJSP();
     }
