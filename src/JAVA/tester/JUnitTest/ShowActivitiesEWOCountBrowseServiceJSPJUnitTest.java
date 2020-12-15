@@ -5,7 +5,11 @@ import JAVA.ShowActivitiesEWOCountBrowseServiceJSP;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ShowActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
 
     private ShowActivitiesEWOCountBrowseServiceJSP service;
@@ -15,10 +19,7 @@ public class ShowActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
         junit.swingui.TestRunner.run(ShowActivitiesEWOCountBrowseServiceJSPJUnitTest.class);
     }
 
-    public static Test suite() {
-        return new TestSuite(ShowActivitiesEWOCountBrowseServiceJSPJUnitTest.class);
-    }
-
+    @Order(1)
     protected void setUp() {
         //Database initialization
         db = MySqlDbConnection.getInstance();
@@ -26,10 +27,12 @@ public class ShowActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
         service = new ShowActivitiesEWOCountBrowseServiceJSP();
     }
 
+    @Order(2)
     protected void tearDown() {
         service = null;
     }
 
+    @Order(3)
     public final void testGetShowActivitiesEWOCountBrowseToJSONJSP() {
         String jsonResultExpected = "[{\"ewo_count\":\"3\"}]";
         String jsonResultActual = service.getShowActivitiesEWOCountBrowseToJSONJSP(db, 1);
