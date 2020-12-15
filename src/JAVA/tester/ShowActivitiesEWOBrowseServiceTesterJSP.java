@@ -10,7 +10,7 @@ public class ShowActivitiesEWOBrowseServiceTesterJSP {
         MySqlDbConnection db = MySqlDbConnection.getInstance();
         //Test JSON
         ShowEWOBrowseServiceJSP service = new ShowEWOBrowseServiceJSP();
-        System.out.println(service.getShowEWOBrowseToJSONJSP(db,1));
+        System.out.println(service.getShowEWOBrowseToJSONJSP(db, 1));
     }
 
 }

@@ -2,9 +2,7 @@ package JAVA.tester.JUnitTest;
 
 import JAVA.MySqlDbConnection;
 import JAVA.ShowSpecificationsBrowseServiceJSP;
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;

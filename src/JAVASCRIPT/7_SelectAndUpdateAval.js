@@ -17,24 +17,24 @@ var idMaint;
 
 let currentIdSelected = null;
 
-function next(checkId,d){
-     var i=0;
+function next(checkId, d) {
+    var i = 0;
     // code to read selected table row cell data (values).
-    $("#maintainerEWO-rows").on('click','.cell',function(){
+    $("#maintainerEWO-rows").on('click', '.cell', function () {
         // get the current row
         var row = $(this).closest("tr");
-        var colSelected = parseInt(row.find("."+d).html().replaceAll(" min", ""));
+        var colSelected = parseInt(row.find("." + d).html().replaceAll(" min", ""));
 
         idMaint = row.find("#link_id").html();
 
         //currentIdSelected è l'id del maintainer scelto per primo
         //salvo in questa variabile l'id del primo maintainer dunque quando scelgo il prossimo orario
         //se questo è relativo ad un maintainer diverso, non mi fa selezionare
-        if(idMaint==currentIdSelected || currentIdSelected==null)
+        if (idMaint == currentIdSelected || currentIdSelected == null)
             currentIdSelected = idMaint;
 
-        while(i===0){
-            console.log("VALORE SELEZIOANTO\t"+colSelected+"\nID MAINT\t"+idMaint)
+        while (i === 0) {
+            console.log("VALORE SELEZIOANTO\t" + colSelected + "\nID MAINT\t" + idMaint)
 
             //mi prendo tutta la riga di valori che poi assegnerò alle variabili 'avail' che userò in 'initParams'
             avail_8to9 = parseInt(row.find(".link_8to9").html().replaceAll(" min", ""));
@@ -55,12 +55,12 @@ function next(checkId,d){
 
             //una volta selezionato un button di una riga
             //disableOtherRows();
-            if(idMaint==currentIdSelected) {
-                if(document.getElementById("toBeAssMin").innerHTML != "Time expired")
+            if (idMaint == currentIdSelected) {
+                if (document.getElementById("toBeAssMin").innerHTML != "Time expired")
                     selectHour(d, colSelected, idMaint);
                 else
                     alert('Reached time limit');
-            }else{
+            } else {
                 alert('Assign work only to one maintainer at time');
             }
             i++;
