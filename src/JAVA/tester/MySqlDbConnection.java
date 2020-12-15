@@ -18,8 +18,14 @@ public class MySqlDbConnection {
 
     private MySqlDbConnection() {
         dbUser = "root";
-        dbPassword = "5#bJiogahLzN";
-        dbName = "Project";
+        dbPassword = "admin";
+        dbName = "project";
+    }
+
+    public static MySqlDbConnection getInstance() {
+        if (instance == null)
+            instance = new MySqlDbConnection();
+        return instance;
     }
 
     public String getDbDriver() {
@@ -67,12 +73,6 @@ public class MySqlDbConnection {
             System.out.println(e);
             return null;
         }
-    }
-
-    public static MySqlDbConnection getInstance() {
-        if(instance == null)
-            instance = new MySqlDbConnection();
-        return instance;
     }
 
 }

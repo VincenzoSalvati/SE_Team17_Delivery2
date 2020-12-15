@@ -1,8 +1,7 @@
 package JAVA.tester.JUnitTest;
 
-import JAVA.tester.MySqlDbConnection;
 import JAVA.ShowActivitiesBrowseServiceJSP;
-import JAVA.tester._0_SetDatabaseTest;
+import JAVA.tester.MySqlDbConnection;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
