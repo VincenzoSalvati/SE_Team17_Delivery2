@@ -15,7 +15,7 @@ public class ShowSpecificationsEWOBrowseServiceTesterJSP {
 
         ShowSpecificationsEWOBrowseServiceJSP service = new ShowSpecificationsEWOBrowseServiceJSP();
         jsonResult = service.getShowSpecificationsEWOBrowseToJSONJSP(db, 4, 1);
-        String jsonResult2 = service.getSingleSkill(db, 4);
+        String jsonResult2 = service.getSingleSkill(db);
 
         System.out.println(jsonResult);
         System.out.println(jsonResult2);

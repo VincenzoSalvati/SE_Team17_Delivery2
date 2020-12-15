@@ -15,7 +15,7 @@ public class ShowSpecificationsBrowseServiceJUnitTestJSP extends TestCase {
         service = new ShowSpecificationsBrowseServiceJSP();
         db = new MySqlDbConnection();
         db.setDbUser("root");
-        db.setDbPassword("5#bJiogahLzN");
+        db.setDbPassword("admin");
         db.setDbName("Project");
     }
 
@@ -24,11 +24,11 @@ public class ShowSpecificationsBrowseServiceJUnitTestJSP extends TestCase {
     }
 
     public final void testGetShowSpecificationsBrowseToJSONJSP() {
-        String jsonResultExpected = "[{\"id\":\"2\",\"work_note\":\"The plant is closed from 00/00/22 to 00/00/22; On the remaining days, it is possible to intervene only after 12:00 \",\"int_des\":\"Replacement of robot 22 welding cables\",\"id_activity\":\"2 - Morra - Painting\",\"week_activity\":\"1\",\"skill\":\"- PAV Certification- Electrical Maintainance- Knowledge of cables types- Knowledge of robot workstation 23\"}]";
-        String jsonResultActual = service.getShowSpecificationsBrowseToJSONJSP(db, 2, 1);
+        String jsonResultExpected = "[{\"id\":\"0\",\"work_note\":\"The plant is closed from 00/00/20 to 00/00/20; On the remaining days, it is possible to intervene only after 10:00 \",\"int_des\":\"Replacement of robot 20 welding cables\",\"id_activity\":\"0 - Fisciano - Molding\",\"week_activity\":\"1\",\"skill\":\"- PAV Certification<br>- Electrical Maintainance<br>- Knowledge of cables types<br>- XYZ-type robot knowledge<br>\"}]";
+        String jsonResultActual = service.getShowSpecificationsBrowseToJSONJSP(db, 0, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
 
-        String jsonResultActual2 = service.getShowSpecificationsBrowseToJSONJSP(db, 1, 1);
+        String jsonResultActual2 = service.getShowSpecificationsBrowseToJSONJSP(db, 0, 1);
         assertNotSame(jsonResultExpected, jsonResultActual2);
     }
 
