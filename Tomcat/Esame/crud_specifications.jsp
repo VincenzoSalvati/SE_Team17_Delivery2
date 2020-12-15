@@ -1,12 +1,8 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="JAVA.*" %>
-<%@ include file="config.jsp" %>
 
 <%
-    MySqlDbConnection db = new MySqlDbConnection();
-    db.setDbUser(dbUser);
-    db.setDbPassword(dbPassword);
-    db.setDbName(dbName);
+    MySqlDbConnection db = MySqlDbConnection.getInstance();
 
     int id = 0;
     String work_note = "0";

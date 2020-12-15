@@ -2,29 +2,26 @@ package JAVA.tester.JUnitTest;
 
 import JAVA.MySqlDbConnection;
 import JAVA.ShowActivitiesEWOCountBrowseServiceJSP;
-import JAVA.tester._0_SetDatabaseTest;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-public class showActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
+public class ShowActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
 
     private ShowActivitiesEWOCountBrowseServiceJSP service;
     private MySqlDbConnection db;
 
     public static void main(String[] args) {
-        junit.swingui.TestRunner.run(showActivitiesEWOCountBrowseServiceJSPJUnitTest.class);
+        junit.swingui.TestRunner.run(ShowActivitiesEWOCountBrowseServiceJSPJUnitTest.class);
     }
 
     public static Test suite() {
-        return new TestSuite(showActivitiesEWOCountBrowseServiceJSPJUnitTest.class);
+        return new TestSuite(ShowActivitiesEWOCountBrowseServiceJSPJUnitTest.class);
     }
 
     protected void setUp() {
         //Database initialization
-        db = new MySqlDbConnection();
-        _0_SetDatabaseTest set = new _0_SetDatabaseTest();
-        set.setDatabase(db);
+        db = MySqlDbConnection.getInstance();
         //Service initialization
         service = new ShowActivitiesEWOCountBrowseServiceJSP();
     }

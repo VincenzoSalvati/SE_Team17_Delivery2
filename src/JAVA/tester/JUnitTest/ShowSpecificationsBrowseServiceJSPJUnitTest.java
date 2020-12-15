@@ -2,11 +2,14 @@ package JAVA.tester.JUnitTest;
 
 import JAVA.MySqlDbConnection;
 import JAVA.ShowSpecificationsBrowseServiceJSP;
-import JAVA.tester._0_SetDatabaseTest;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ShowSpecificationsBrowseServiceJSPJUnitTest extends TestCase {
 
     private ShowSpecificationsBrowseServiceJSP service;
@@ -20,19 +23,20 @@ public class ShowSpecificationsBrowseServiceJSPJUnitTest extends TestCase {
         return new TestSuite(ShowSpecificationsBrowseServiceJSPJUnitTest.class);
     }
 
+    @Order(1)
     protected void setUp() {
         //Database initialization
-        db = new MySqlDbConnection();
-        _0_SetDatabaseTest set = new _0_SetDatabaseTest();
-        set.setDatabase(db);
+        db = MySqlDbConnection.getInstance();
         //Service initialization
         service = new ShowSpecificationsBrowseServiceJSP();
     }
 
+    @Order(2)
     protected void tearDown() {
         service = null;
     }
 
+    @Order(3)
     public final void testGetShowSpecificationsBrowseToJSONJSP() {
         String jsonResultExpected = "[{\"id\":\"0\",\"work_note\":\"The plant is closed from 00/00/20 to 00/00/20; On the remaining days, it is possible to intervene only after 10:00\",\"int_des\":\"Replacement of robot 20 welding cables\",\"id_activity\":\"0 - Fisciano - Molding\",\"week_activity\":\"1\",\"skill\":\"- PAV Certification<br>- Electrical Maintainance<br>- Knowledge of cables types<br>- XYZ-type robot knowledge<br>\"}]";
         String jsonResultActual = service.getShowSpecificationsBrowseToJSONJSP(db, 0, 1);

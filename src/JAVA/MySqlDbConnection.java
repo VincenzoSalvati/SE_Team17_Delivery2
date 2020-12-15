@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 @SuppressWarnings("ThrowablePrintedToSystemOut")
 public class MySqlDbConnection {
 
+    private static MySqlDbConnection instance = null;
+
     private String dbDriver = "jdbc:mysql";
     private String dbHost = "localhost";
     private String dbPort = "3306";
@@ -13,6 +15,18 @@ public class MySqlDbConnection {
     private String dbPassword;
     private String dbName;
     private String dbTimeZone = "Europe/Rome";
+
+    private MySqlDbConnection() {
+        dbUser = "root";
+        dbPassword = "admin";
+        dbName = "project";
+    }
+
+    public static MySqlDbConnection getInstance() {
+        if (instance == null)
+            instance = new MySqlDbConnection();
+        return instance;
+    }
 
     public String getDbDriver() {
         return dbDriver;
@@ -36,30 +50,6 @@ public class MySqlDbConnection {
 
     public void setDbPort(String dbPort) {
         this.dbPort = dbPort;
-    }
-
-    public String getDbUser() {
-        return dbUser;
-    }
-
-    public void setDbUser(String dbUser) {
-        this.dbUser = dbUser;
-    }
-
-    public String getDbPassword() {
-        return dbPassword;
-    }
-
-    public void setDbPassword(String dbPassword) {
-        this.dbPassword = dbPassword;
-    }
-
-    public String getDbName() {
-        return dbName;
-    }
-
-    public void setDbName(String dbName) {
-        this.dbName = dbName;
     }
 
     public String getDbTimeZone() {
@@ -86,3 +76,4 @@ public class MySqlDbConnection {
     }
 
 }
+
