@@ -6,17 +6,17 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-public class showActivitiesEWOBrowseServiceJSPJUnitTest extends TestCase {
+public class ShowActivitiesEWOBrowseServiceJSPJUnitTest extends TestCase {
 
     private ShowActivitiesEWOBrowseServiceJSP service;
     private MySqlDbConnection db;
 
     public static void main(String[] args) {
-        junit.swingui.TestRunner.run(showActivitiesEWOBrowseServiceJSPJUnitTest.class);
+        junit.swingui.TestRunner.run(ShowActivitiesEWOBrowseServiceJSPJUnitTest.class);
     }
 
     public static Test suite() {
-        return new TestSuite(showActivitiesEWOBrowseServiceJSPJUnitTest.class);
+        return new TestSuite(ShowActivitiesEWOBrowseServiceJSPJUnitTest.class);
     }
 
     protected void setUp() {
