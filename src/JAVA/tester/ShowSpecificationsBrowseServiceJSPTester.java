@@ -1,6 +1,5 @@
 package JAVA.tester;
 
-import JAVA.MySqlDbConnection;
 import JAVA.ShowSpecificationsBrowseServiceJSP;
 
 public class ShowSpecificationsBrowseServiceJSPTester {
