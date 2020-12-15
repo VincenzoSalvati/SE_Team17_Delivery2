@@ -82,7 +82,7 @@ class BrowseController {
             row = row.replace(/{Id_activity}/ig, activityNav);
             row = row.replace(/{Week_activity}/ig, obj.week_activity);
             row = row.replace(/{Ewo_activity}/ig, obj.ewo_activity);
-            estimationTime=obj.estimate_tr
+            estimationTime = obj.estimate_tr
             row = row.replace(/{Estimate_tr}/ig, estimationTime);
             $('#specificationsEWO-rows').append(row);
         });

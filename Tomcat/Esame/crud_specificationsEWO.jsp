@@ -41,4 +41,4 @@
     response.setContentType("application/json");
     response.setHeader("Access-Control-Allow-Origin", "*");
 %>
-<%= "[" + "]" %>
+<%= se.getDbOperationMessageEstimateTr() %>

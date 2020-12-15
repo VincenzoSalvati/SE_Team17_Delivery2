@@ -1,18 +1,22 @@
 package JAVA.tester;
 
-import JAVA.AssignHoursBrowseServiceJSP;
 import JAVA.MySqlDbConnection;
+import JAVA.ShowEWOBrowseServiceJSP;
 
-public class AssignHoursBrowseServiceTesterJSP {
+public class ShowActivitiesEWOBrowseServiceJSPTester {
+
     public static void main(String[] args) {
         String jsonResult;
+
         MySqlDbConnection db = new MySqlDbConnection();
         db.setDbUser("root");
         db.setDbPassword("admin");
         db.setDbName("Project");
 
-        AssignHoursBrowseServiceJSP service = new AssignHoursBrowseServiceJSP();
-        jsonResult = service.getAssignHoursBrowseToJSONJSP(db, 2, 1, 2, 0, "Monday");
+        ShowEWOBrowseServiceJSP service = new ShowEWOBrowseServiceJSP();
+        jsonResult = service.getShowEWOBrowseToJSONJSP(db, 1);
+
         System.out.println(jsonResult);
     }
+
 }

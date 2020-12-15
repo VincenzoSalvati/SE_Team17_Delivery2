@@ -22,4 +22,4 @@
 	response.setContentType("application/json");
 	response.setHeader("Access-Control-Allow-Origin","*");
 %>
-<%= service.getSingleSkill(db) %>
+<%= service.getSingleSkill(db, ids) %>

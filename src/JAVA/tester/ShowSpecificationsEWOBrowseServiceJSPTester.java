@@ -3,7 +3,7 @@ package JAVA.tester;
 import JAVA.MySqlDbConnection;
 import JAVA.ShowSpecificationsEWOBrowseServiceJSP;
 
-public class ShowSpecificationsEWOBrowseServiceTesterJSP {
+public class ShowSpecificationsEWOBrowseServiceJSPTester {
 
     public static void main(String[] args) {
 

@@ -110,20 +110,20 @@ public class ShowSpecificationsEWOBrowseServiceJSP {
             String prova = "";
             ArrayList<String> als = new ArrayList<>();
 
-            for(int i = 0; i < ss.length(); i++){
-                if(!String.valueOf(ss.charAt(i)).equals("-"))
+            for (int i = 0; i < ss.length(); i++) {
+                if (!String.valueOf(ss.charAt(i)).equals("-"))
                     prova = prova + ss.charAt(i);
                 else {
                     als.add(prova);
                     prova = "";
                 }
-                if(i == ss.length()-1)
+                if (i == ss.length() - 1)
                     als.add(prova);
             }
 
             stmt.executeUpdate("DELETE FROM need WHERE specifications= " + ids);
 
-            for(int i = 0; i < als.size(); i++){
+            for (int i = 0; i < als.size(); i++) {
                 stmt.executeUpdate("INSERT INTO need (specifications, skill) VALUES (" + ids + ", " + als.get(i) + ")");
             }
 

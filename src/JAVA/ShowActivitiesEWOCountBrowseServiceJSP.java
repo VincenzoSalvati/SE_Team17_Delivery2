@@ -32,8 +32,4 @@ public class ShowActivitiesEWOCountBrowseServiceJSP {
         return "[" + Util.removeLastChar(specificationsBrowseEWOJSONResult.toString()) + "]";
 
     }
-
-    public String makeJSON_showActivitiesEWOCount(){
-        return "[{\"ewo_count\":\"3\"}]";
-    }
 }

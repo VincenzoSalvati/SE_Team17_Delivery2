@@ -1,18 +1,24 @@
 package JAVA.tester;
 
-import JAVA.AssignEWOBrowseServiceJSP;
 import JAVA.MySqlDbConnection;
+import JAVA.ShowActivitiesBrowseService;
 
-public class AssignEWOBrowseServiceTesterJSP {
+
+public class ShowActivitiesBrowseServiceTester {
+
     public static void main(String[] args) {
         String jsonResult;
+
         MySqlDbConnection db = new MySqlDbConnection();
         db.setDbUser("root");
         db.setDbPassword("admin");
-        db.setDbName("project");
+        db.setDbName("Project");
 
-        AssignEWOBrowseServiceJSP service = new AssignEWOBrowseServiceJSP();
-        jsonResult = service.getAssignEWOBrowseToJSONJSP(db, 4, 1, 4, "Tuesday");
+        ShowActivitiesBrowseService service = new ShowActivitiesBrowseService();
+        jsonResult = service.getShowActivitiesBrowseToJSON(db);
+
         System.out.println(jsonResult);
     }
+
 }
+

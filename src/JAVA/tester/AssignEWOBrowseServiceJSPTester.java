@@ -1,22 +1,18 @@
 package JAVA.tester;
 
+import JAVA.AssignEWOBrowseServiceJSP;
 import JAVA.MySqlDbConnection;
-import JAVA.ShowEWOBrowseService;
 
-public class ShowEWOBrowseServiceTester {
-
+public class AssignEWOBrowseServiceJSPTester {
     public static void main(String[] args) {
         String jsonResult;
-
         MySqlDbConnection db = new MySqlDbConnection();
         db.setDbUser("root");
         db.setDbPassword("admin");
-        db.setDbName("Project");
+        db.setDbName("project");
 
-        ShowEWOBrowseService service = new ShowEWOBrowseService();
-        jsonResult = service.getShowEWOBrowseToJSON(db);
-
+        AssignEWOBrowseServiceJSP service = new AssignEWOBrowseServiceJSP();
+        jsonResult = service.getAssignEWOBrowseToJSONJSP(db, 4, 1, 4, "Tuesday");
         System.out.println(jsonResult);
     }
-
 }

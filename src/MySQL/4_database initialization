@@ -28,31 +28,31 @@ values (6, 1, true, 'Morra - Painting', 'Hydraulic', 250);
 #Insert Specifications
 insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
 values (0,
-        'The plant is closed from 00/00/20 to 00/00/20; On the remaining days, it is possible to intervene only after 10:00 ',
+        'The plant is closed from 00/00/20 to 00/00/20; On the remaining days, it is possible to intervene only after 10:00',
         'Replacement of robot 20 welding cables', 0, 1, false);
 insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
 values (1,
-        'The plant is closed from 00/00/21 to 00/00/21; On the remaining days, it is possible to intervene only after 11:00 ',
+        'The plant is closed from 00/00/21 to 00/00/21; On the remaining days, it is possible to intervene only after 11:00',
         'Replacement of robot 21 welding cables', 1, 1, false);
 insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
 values (2,
-        'The plant is closed from 00/00/22 to 00/00/22; On the remaining days, it is possible to intervene only after 12:00 ',
+        'The plant is closed from 00/00/22 to 00/00/22; On the remaining days, it is possible to intervene only after 12:00',
         'Replacement of robot 22 welding cables', 2, 1, false);
 insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
 values (3,
-        'The plant is closed from 00/00/23 to 00/00/23; <br> On the remaining days, it is possible to intervene only after 13:00 ',
+        'The plant is closed from 00/00/23 to 00/00/23; <br> On the remaining days, it is possible to intervene only after 13:00',
         'Replacement of robot 23 welding cables', 3, 1, false);
 insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
 values (4,
-        'The plant is closed from 00/00/20 to 00/00/20; On the remaining days, it is possible to intervene only after 10:00 ',
+        'The plant is closed from 00/00/20 to 00/00/20; On the remaining days, it is possible to intervene only after 10:00',
         'Replacement of robot 20 welding cables', 4, 1, true);
 insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
 values (5,
-        'The plant is closed from 00/00/21 to 00/00/21; On the remaining days, it is possible to intervene only after 11:00 ',
+        'The plant is closed from 00/00/21 to 00/00/21; On the remaining days, it is possible to intervene only after 11:00',
         'Replacement of robot 21 welding cables', 5, 1, true);
 insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
 values (6,
-        'The plant is closed from 00/00/22 to 00/00/22; On the remaining days, it is possible to intervene only after 12:00 ',
+        'The plant is closed from 00/00/22 to 00/00/22; On the remaining days, it is possible to intervene only after 12:00',
         'Replacement of robot 22 welding cables', 6, 1, true);
 
 

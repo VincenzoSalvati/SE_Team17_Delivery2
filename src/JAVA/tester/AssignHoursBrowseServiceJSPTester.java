@@ -1,9 +1,9 @@
 package JAVA.tester;
 
-import JAVA.AssignMaintainerBrowseServiceJSP;
+import JAVA.AssignHoursBrowseServiceJSP;
 import JAVA.MySqlDbConnection;
 
-public class AssignMaintainerBrowseServiceTesterJSP {
+public class AssignHoursBrowseServiceJSPTester {
     public static void main(String[] args) {
         String jsonResult;
         MySqlDbConnection db = new MySqlDbConnection();
@@ -11,9 +11,8 @@ public class AssignMaintainerBrowseServiceTesterJSP {
         db.setDbPassword("admin");
         db.setDbName("Project");
 
-        AssignMaintainerBrowseServiceJSP service = new AssignMaintainerBrowseServiceJSP();
-        jsonResult = service.getAssignMaintainerBrowseToJSONJSP(db, 2, 1, 0);
+        AssignHoursBrowseServiceJSP service = new AssignHoursBrowseServiceJSP();
+        jsonResult = service.getAssignHoursBrowseToJSONJSP(db, 2, 1, 2, 0, "Monday");
         System.out.println(jsonResult);
-
     }
 }

@@ -1,9 +1,9 @@
 package JAVA.tester;
 
 import JAVA.MySqlDbConnection;
-import JAVA.ShowEWOBrowseServiceJSP;
+import JAVA.ShowEWOBrowseService;
 
-public class ShowEWOBrowseServiceTesterJSP {
+public class ShowActivitiesEWOBrowseServiceTester {
 
     public static void main(String[] args) {
         String jsonResult;
@@ -13,8 +13,8 @@ public class ShowEWOBrowseServiceTesterJSP {
         db.setDbPassword("admin");
         db.setDbName("Project");
 
-        ShowEWOBrowseServiceJSP service = new ShowEWOBrowseServiceJSP();
-        jsonResult = service.getShowEWOBrowseToJSONJSP(db, 1);
+        ShowEWOBrowseService service = new ShowEWOBrowseService();
+        jsonResult = service.getShowEWOBrowseToJSON(db);
 
         System.out.println(jsonResult);
     }

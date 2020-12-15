@@ -1,22 +1,22 @@
-<%@ page import="java.sql.*" %>
-<%@ page import="JAVA.*" %>
-<%@ include file="config.jsp" %>
+<%@ page import = "java.sql.*" %>
+<%@ page import = "JAVA.*" %>
+<%@ include file = "config.jsp" %>
 
 <%
-    String jsonResult;
+   	String jsonResult;
 
     MySqlDbConnection db = new MySqlDbConnection();
     db.setDbUser(dbUser);
     db.setDbPassword(dbPassword);
     db.setDbName(dbName);
-    int week = 0;
-    if (request.getParameter("week") != null) {
-        week = Integer.parseInt(request.getParameter("week"));
-    }
+    int week=0;
+    if (request.getParameter("week") != null){
+    week=Integer.parseInt(request.getParameter("week"));
+}
     ShowEWOBrowseServiceJSP service = new ShowEWOBrowseServiceJSP();
-
+    
     response.setContentType("application/json");
     response.setHeader("Access-Control-Allow-Origin", "*");
 %>
 
-<%= service.getShowEWOBrowseToJSONJSP(db, week) %>
+<%= service.getShowEWOBrowseToJSONJSP(db,week) %>

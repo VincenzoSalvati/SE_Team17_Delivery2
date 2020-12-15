@@ -5,11 +5,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 @SuppressWarnings("SqlResolve")
-public class ShowActivitiesBrowseServiceJSP {
+public class ShowActivitiesBrowseService {
 
     private Connection con;
 
-    public String getShowActivitiesBrowseToJSONJSP(MySqlDbConnection db, int week) {
+    public String getShowActivitiesBrowseToJSON(MySqlDbConnection db) {
 
         String activityJSONFormat = "{\"id\":\"{ID}\",\"area\":\"{AREA}\",\"type\":\"{TYPE}\",\"estim_time\":\"{ESTIM_TIME}\"}";
         StringBuilder activityJSONResult = new StringBuilder();
@@ -18,7 +18,7 @@ public class ShowActivitiesBrowseServiceJSP {
         try {
             Statement stmt = this.con.createStatement();
             ResultSet rs;
-            rs = stmt.executeQuery("SELECT id, site, type, estim_time FROM Activity WHERE ewo=false AND week=" + week);
+            rs = stmt.executeQuery("SELECT id, site, type, estim_time FROM Activity WHERE ewo=false AND week=" + 1);
             while (rs.next()) {
                 JSONRow = activityJSONFormat.replace("{ID}", Integer.toString(rs.getInt(1)));
                 JSONRow = JSONRow.replace("{AREA}", Util.utf8Encode(rs.getString(2)));
