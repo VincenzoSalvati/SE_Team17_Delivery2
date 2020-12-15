@@ -75,7 +75,11 @@ body {
 .butEWO {
     padding: 10px;
     text-align: center;
+}
 
+.butTickets{
+    padding: 10px;
+    text-align: center;
 }
 
 .but-close {
