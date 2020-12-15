@@ -25,12 +25,12 @@ public class AssignHoursBrowseServiceJSPJUnitTest extends TestCase {
         service = new AssignHoursBrowseServiceJSP();
     }
 
-    @Order(2)
+    @Order(3)
     protected void tearDown() {
         service = null;
     }
 
-    @Order(3)
+    @Order(2)
     public final void testGetAssignHoursBrowseToJSONJSP() {
         String jsonResultExpected = "[{\"id\":\"0\",\"maint\":\"Pippo\",\"skills\":\"2\",\"h8to9\":\"30\",\"h9to10\":\"30\",\"h10to11\":\"25\",\"h11to12\":\"55\",\"h14to15\":\"10\",\"h15to16\":\"20\",\"h16to17\":\"40\"}]";
         String jsonResultActual = service.getAssignHoursBrowseToJSONJSP(db, 2, 1, 2, 0, "Monday");
