@@ -5,7 +5,11 @@ import JAVA.MySqlDbConnection;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AssignMaintainerBrowseServiceJSPJUnitTest extends TestCase {
 
     private AssignMaintainerBrowseServiceJSP service;
@@ -15,10 +19,7 @@ public class AssignMaintainerBrowseServiceJSPJUnitTest extends TestCase {
         junit.swingui.TestRunner.run(AssignMaintainerBrowseServiceJSPJUnitTest.class);
     }
 
-    public static Test suite() {
-        return new TestSuite(AssignMaintainerBrowseServiceJSPJUnitTest.class);
-    }
-
+    @Order(1)
     protected void setUp() {
         //Database initialization
         db = MySqlDbConnection.getInstance();
@@ -26,10 +27,12 @@ public class AssignMaintainerBrowseServiceJSPJUnitTest extends TestCase {
         service = new AssignMaintainerBrowseServiceJSP();
     }
 
+    @Order(2)
     protected void tearDown() {
         service = null;
     }
 
+    @Order(3)
     public final void testGetAssignMaintainerBrowseToJSONJSP() {
         String jsonResultExpected = "[{\"id\":\"0\",\"maint\":\"Pippo\",\"skills\":\"2/4\",\"mon\":\"50\",\"tue\":\"51\",\"wed\":\"53\",\"thu\":\"42\",\"fri\":\"50\",\"sat\":\"46\",\"sun\":\"48\"}," +
                 "{\"id\":\"1\",\"maint\":\"Paperino\",\"skills\":\"3/4\",\"mon\":\"45\",\"tue\":\"44\",\"wed\":\"47\",\"thu\":\"32\",\"fri\":\"50\",\"sat\":\"44\",\"sun\":\"39\"}," +

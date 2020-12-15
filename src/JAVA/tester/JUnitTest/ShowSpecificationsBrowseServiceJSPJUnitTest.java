@@ -19,10 +19,6 @@ public class ShowSpecificationsBrowseServiceJSPJUnitTest extends TestCase {
         junit.swingui.TestRunner.run(ShowSpecificationsBrowseServiceJSPJUnitTest.class);
     }
 
-    public static Test suite() {
-        return new TestSuite(ShowSpecificationsBrowseServiceJSPJUnitTest.class);
-    }
-
     @Order(1)
     protected void setUp() {
         //Database initialization
