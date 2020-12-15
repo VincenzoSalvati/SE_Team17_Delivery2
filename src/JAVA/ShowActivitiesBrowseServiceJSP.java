@@ -34,4 +34,11 @@ public class ShowActivitiesBrowseServiceJSP {
         return "[" + Util.removeLastChar(activityJSONResult.toString()) + "]";
     }
 
+    public String makeJSON_showActivities(){
+        return "[{\"id\":\"0\",\"area\":\"Fisciano - Molding\",\"type\":\"Mechanical\",\"estim_time\":\"120\"}," +
+                "{\"id\":\"1\",\"area\":\"Nusco - Carpentery\",\"type\":\"Electric\",\"estim_time\":\"30\"}," +
+                "{\"id\":\"2\",\"area\":\"Morra - Painting\",\"type\":\"Hydraulic\",\"estim_time\":\"250\"}," +
+                "{\"id\":\"3\",\"area\":\"Fisciano - Molding\",\"type\":\"Electronics\",\"estim_time\":\"90\"}]";
+    }
+
 }
