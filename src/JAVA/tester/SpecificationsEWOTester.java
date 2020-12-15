@@ -7,9 +7,7 @@ public class SpecificationsEWOTester {
 
     public static void main(String[] args) {
         //Database initialization
-        MySqlDbConnection db = new MySqlDbConnection();
-        _0_SetDatabaseTest set = new _0_SetDatabaseTest();
-        set.setDatabase(db);
+        MySqlDbConnection db = MySqlDbConnection.getInstance();
         //Test update
         SpecificationsEWO service = new SpecificationsEWO(db, 4);
         service.setNew_estimated_rt(444);
