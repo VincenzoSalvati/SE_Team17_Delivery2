@@ -13,15 +13,23 @@ var avail_15to16 = 0;
 var avail_16to17 = 0;
 var idMaint;
 let currentIdSelected = null;
+//dizionario delle celle selezionate
+var CellSelected = [];
+var cellCount = 0;
 
 function clickCell(checkId, d) {
     var i = 0;
+    //variabile che serve a capire se si può scegliere o meno un minuto selezionato
+    //quando è settata a false vuol dire che ho già selezionato del valore
+    var check = true;
+
     $("#maintainerEWO-rows").on('click', '.cell', function () {
         var row = $(this).closest("tr");
         var colSelected = parseInt(row.find("." + d).html().replaceAll(" min", ""));
         idMaint = row.find("#link_id").html();
         if (idMaint === currentIdSelected || currentIdSelected == null)
             currentIdSelected = idMaint;
+
         while (i === 0) {
             avail_8to9 = parseInt(row.find(".link_8to9").html().replaceAll(" min", ""));
             avail_9to10 = parseInt(row.find(".link_9to10").html().replaceAll(" min", ""));
@@ -31,9 +39,32 @@ function clickCell(checkId, d) {
             avail_15to16 = parseInt(row.find(".link_15to16").html().replaceAll(" min", ""));
             avail_16to17 = parseInt(row.find(".link_16to17").html().replaceAll(" min", ""));
             //disableOtherRows();
+
+            console.log('OK');
+            //inserisco nel dizionario l'id della cella selezionata, se già presente setto check a false
+            //altrimenti lo setto a true
+
+            for (var key in CellSelected) {
+                // noinspection JSUnfilteredForInLoop
+                if(d===CellSelected[key])
+                    console.log('ELEM ALREADY EXIST IN DICT', d);
+                check=false;
+            }
+
+            //quindi se check == false non inserisco di nuovo l'elemento
+            if(CellSelected.length === 0 && check){
+                console.log('ELEM ADD TO DICT', d);
+                CellSelected[cellCount] = d;
+                cellCount++;
+            }
+
             if (idMaint === currentIdSelected) {
                 if (document.getElementById("toBeAssMin").innerHTML !== "Time expired")
-                    selectHour(d, colSelected, idMaint);
+                    //se l'elemento selezionato non è uno di quelli già scelti va bene altrimenti do errore
+                    if(check)
+                        selectHour(d, colSelected, idMaint);
+                    else
+                        alert('Already selected. Please choose another hour availab.');
                 else
                     alert('Reached time limit');
             } else {
