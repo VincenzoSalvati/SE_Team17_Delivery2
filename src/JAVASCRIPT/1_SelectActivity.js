@@ -6,3 +6,7 @@ function selectActivity() {
         location.href = "2_ShowSpecifications.html?activity=" + $text + "&week=" + week + "&time=" + $time;
     });
 }
+
+function logOut(){
+    location.href = "loginPage.html";
+}
