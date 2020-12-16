@@ -185,7 +185,7 @@ function updateDB() {
             avail_16to17: avail_16to17
         }, function (data) {
         }).done(function () {
-        //location.href = "1_ShowActivities.html?week=" + week;
+        location.href = "1_ShowActivities.html?week=" + week;
     }).fail(function () {
         alert("Error while updating database");
     });

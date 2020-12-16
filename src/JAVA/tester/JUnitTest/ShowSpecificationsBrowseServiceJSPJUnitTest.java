@@ -29,7 +29,7 @@ public class ShowSpecificationsBrowseServiceJSPJUnitTest extends TestCase {
         String jsonResultExpected = "[{\"id\":\"0\",\"work_note\":\"The plant is closed from 00/00/20 to 00/00/20; On the remaining days, it is possible to intervene only after 10:00\",\"int_des\":\"Replacement of robot 20 welding cables\",\"id_activity\":\"0 - Fisciano - Molding\",\"week_activity\":\"1\",\"skill\":\"- PAV Certification<br>- Electrical Maintainance<br>- Knowledge of cables types<br>- XYZ-type robot knowledge<br>\"}]";
         String jsonResultActual = service.getShowSpecificationsBrowseToJSONJSP(db, 0, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
-        String jsonResultActual2 = service.getShowSpecificationsBrowseToJSONJSP(db, 0, 1);
+        String jsonResultActual2 = service.getShowSpecificationsBrowseToJSONJSP(db, 2, 1);
         assertNotSame(jsonResultExpected, jsonResultActual2);
     }
 

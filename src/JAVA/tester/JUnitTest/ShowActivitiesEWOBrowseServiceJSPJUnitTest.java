@@ -29,8 +29,6 @@ public class ShowActivitiesEWOBrowseServiceJSPJUnitTest extends TestCase {
         String jsonResultExpected = "[{\"id\":\"6\",\"area\":\"Morra - Painting\",\"type\":\"Hydraulic\",\"estim_time\":\"250\"}]";
         String jsonResultActual = service.getShowActivitiesEWOBrowseToJSONJSP(db, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
-        String jsonResultActual2 = service.getShowActivitiesEWOBrowseToJSONJSP(db, 1);
-        assertNotSame(jsonResultExpected, jsonResultActual2);
     }
 
     @Order(3)

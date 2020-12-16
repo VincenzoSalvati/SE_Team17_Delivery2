@@ -30,8 +30,6 @@ public class ShowInProgressEWOBrowseServiceJSPJUnitTest extends TestCase {
                 "{\"id\":\"5\",\"area\":\"Nusco - Carpentery\",\"type\":\"Electric\",\"estim_time\":\"30\",\"department\":\"Sent\",\"maintainer\":\"Received\",\"state\":\"NotStarted\"}]";
         String jsonResultActual = service.getShowInProgressEWOBrowseToJSONJSP(db, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
-        String jsonResultActual2 = service.getShowInProgressEWOBrowseToJSONJSP(db, 1);
-        assertNotSame(jsonResultExpected, jsonResultActual2);
     }
 
     @Order(3)

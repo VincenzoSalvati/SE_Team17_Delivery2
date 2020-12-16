@@ -32,8 +32,6 @@ public class ShowActivitiesBrowseServiceJSPJUnitTest extends TestCase {
                 "{\"id\":\"3\",\"area\":\"Fisciano - Molding\",\"type\":\"Electronics\",\"estim_time\":\"90\"}]";
         String jsonResultActual = service.getShowActivitiesBrowseToJSONJSP(db, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
-        String jsonResultActual2 = service.getShowActivitiesBrowseToJSONJSP(db, 1);
-        assertNotSame(jsonResultExpected, jsonResultActual2);
     }
 
     @Order(3)
