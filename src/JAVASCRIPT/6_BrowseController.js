@@ -37,6 +37,26 @@ class BrowseController {
         let activityNav;
         let workNote;
         let estimationTime;
+
+        var day = "";
+        var dat = new Date();
+        var d = dat.getDay();
+        if (d === 1) {
+            day = "Monday";
+        } else if (d === 2) {
+            day = "Tuesday";
+        } else if (d === 3) {
+            day = "Wednesday";
+        } else if (d === 4) {
+            day = "Thursday";
+        } else if (d === 5) {
+            day = "Friday";
+        } else if (d === 6) {
+            day = "Saturday";
+        } else if (d === 0) {
+            day = "Sunday";
+        }
+
         $.each(data, function (index, obj) {
             let row = staticHtml;
             row = row.replace(/{Id}/ig, obj.id);
@@ -46,6 +66,7 @@ class BrowseController {
             activityNav = obj.id_activity;
             row = row.replace(/{Id_activity}/ig, activityNav);
             row = row.replace(/{Week_activity}/ig, obj.week_activity);
+            row = row.replace(/{Day}/ig, day + "\t" + dat.getDate());
             row = row.replace(/{Ewo_activity}/ig, obj.ewo_activity);
             estimationTime = obj.estimate_tr
             row = row.replace(/{Estimate_tr}/ig, estimationTime);
