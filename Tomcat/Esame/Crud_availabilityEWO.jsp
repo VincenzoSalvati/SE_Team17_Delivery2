@@ -6,7 +6,7 @@
 
     int week = 0;
     int id_maint = 0;
-	String day = "";
+    String day = "";
     int avail_8to9 = 0;
     int avail_9to10 = 0;
     int avail_10to11 = 0;
@@ -16,7 +16,7 @@
     int avail_16to17 = 0;
 
     if (request.getParameter("week") != null && request.getParameter("id_maint") != null && request.getParameter("day") != null && request.getParameter("avail_8to9") != null && request.getParameter("avail_9to10") != null && request.getParameter("avail_10to11") != null && request.getParameter("avail_11to12") != null && request.getParameter("avail_14to15") != null && request.getParameter("avail_15to16") != null && request.getParameter("avail_16to17") != null) {
-    	week= Integer.parseInt(request.getParameter("week"));
+        week = Integer.parseInt(request.getParameter("week"));
         id_maint = Integer.parseInt(request.getParameter("id_maint"));
         day = request.getParameter("day");
         avail_8to9 = Integer.parseInt(request.getParameter("avail_8to9"));

@@ -27,7 +27,7 @@
 
     Availability avail = new Availability(db);
 
-    avail.setId(id);    
+    avail.setId(id);
     avail.setAvail_8to9(avail_8to9);
     avail.setAvail_9to10(avail_9to10);
     avail.setAvail_10to11(avail_10to11);
