@@ -1,8 +1,8 @@
-function Popup1(idSpecifications) {
+function popupEditEstimTime(idSpecifications) {
     var new_text = prompt("Edit estimated time required:");
     if (new_text != null && isNumeric(new_text) && !(!isNaN(new_text) && new_text.toString().indexOf('.') !== -1)) {
         if (parseInt(new_text) > 0)
-            save_text1(idSpecifications, new_text);
+            saveNewEstimTime(idSpecifications, new_text);
         else
             alert("Please, insert only integer number values strictly positive")
     } else if (new_text != null)
@@ -15,15 +15,30 @@ function isNumeric(str) {
         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
 }
 
-function Popup2(idSpecifications) {
-    var new_text = prompt("Edit intervention type:");
-    if (new_text != null)
-        save_text2(idSpecifications, new_text);
+//save new Intervention Type on db
+function saveNewIntType(idSpecifications, text_mod) {
+    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/Crud_specificationsEWO.jsp",
+        {
+            id: idSpecifications,
+            int_des: text_mod
+        }, function (data) {
+        }).done(function () {
+        location.reload();
+        alert("Database updated");
+    }).fail(function () {
+        alert("Error while updating database");
+    });
 }
 
-function save_text1(idSpecifications, text_mod) {
-    /* Call the microservice and evaluate data and result status */
-    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/crud_specificationsEWO.jsp",
+function popupEditIntType(idSpecifications) {
+    var new_text = prompt("Edit intervention type:");
+    if (new_text != null)
+        saveNewIntType(idSpecifications, new_text);
+}
+
+//save new Estimated Time on db
+function saveNewEstimTime(idSpecifications, text_mod) {
+    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/Crud_specificationsEWO.jsp",
         {
             id: idSpecifications,
             estimate_tr: text_mod,
@@ -38,28 +53,12 @@ function save_text1(idSpecifications, text_mod) {
     });
 }
 
-function save_text2(idSpecifications, text_mod) {
-    /* Call the microservice and evaluate data and result status */
-    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/crud_specificationsEWO.jsp",
-        {
-            id: idSpecifications,
-            int_des: text_mod
-        }, function (data) {
-        }).done(function () {
-        location.reload();
-        alert("Database updated");
-    }).fail(function () {
-        alert("Error while updating database");
-    });
-}
-
-
-// SECONDA PARTE: SKILL
-
+//manage skill
 var list1 = [];
 var list2 = [];
 
-function myfunc(thisObj, idSkill, skill) {
+//fetch skill
+function manageSkill(thisObj, idSkill, skill) {
     var check = document.getElementById(idSkill);
     var c = 0;
     for (var i = 0; i < list1.length; i++) {
@@ -75,16 +74,10 @@ function myfunc(thisObj, idSkill, skill) {
         list2.push(skill);
         check.style.visibility = 'visible';
     }
-
 }
 
-function done(idSpec) {
-    if (list1.length > 0)
-        updateDb(idSpec);
-
-}
-
-function escamotage() {
+//organize string skill
+function escamotageToManageStringSkill() {
     var s;
     if (list1.length > 0) {
         for (var i = 0; i < list1.length; i++) {
@@ -97,12 +90,33 @@ function escamotage() {
     return s;
 }
 
+//remove skill from list HTML (Current skills setted)
+function removeItem() {
+    var ul = document.getElementById("dynamic-list-skill");
+    ul.innerHTML = "";
+}
+
+//add skill from list HTML (Current skills setted)
+function addItem(ski) {
+    var ul = document.getElementById("dynamic-list-skill");
+    var li = document.createElement("li");
+    li.setAttribute('id', ski);
+    li.appendChild(document.createTextNode(ski));
+    ul.appendChild(li);
+}
+
+function selectSubmit(idSpec) {
+    if (list1.length > 0)
+        updateDb(idSpec);
+}
+
+//update specifications EWO on db
 function updateDb(idSpec) {
     /* Call the microservice and evaluate data and result status */
-    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/6.3_showSpecificationsEWO.jsp",
+    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/6.3_ShowSpecificationsEWO.jsp",
         {
-            idS: idSpec,
-            skillSelected: escamotage()
+            specifications: idSpec,
+            stringSkills: escamotageToManageStringSkill()
         }, function (data) {
         }).done(function () {
         alert("Database updated");
@@ -121,18 +135,3 @@ function updateDb(idSpec) {
     list1 = [];
     list2 = [];
 }
-
-
-function removeItem() {
-    var ul = document.getElementById("dynamic-list-skill");
-    ul.innerHTML = "";
-}
-
-function addItem(ski) {
-    var ul = document.getElementById("dynamic-list-skill");
-    var li = document.createElement("li");
-    li.setAttribute('id', ski);
-    li.appendChild(document.createTextNode(ski));
-    ul.appendChild(li);
-}
-

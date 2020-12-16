@@ -20,27 +20,21 @@ public class AssignHoursBrowseService {
     private Connection con;
 
     public String getAssignHoursBrowseToJSON(MySqlDbConnection db) {
-        String assignMaintainerBrowseJSONFormat = "{\"id\":\"{ID}\",\"maint\":\"{MAINT}\",\"skills\":\"{SKILLS}\",\"h8to9\":\"{h8to9}\",\"h9to10\":\"{h9to10}\",\"h10to11\":\"{h10to11}\",\"h11to12\":\"{h11to12}\",\"h14to15\":\"{h14to15}\",\"h15to16\":\"{h15to16}\",\"h16to17\":\"{h16to17}\"}";
-        String assignMaintainerJSONResult = "";
+        String assignHoursBrowseJSONFormat = "{\"id\":\"{ID}\",\"maint\":\"{MAINT}\",\"skills\":\"{SKILLS}\",\"h8to9\":\"{h8to9}\",\"h9to10\":\"{h9to10}\",\"h10to11\":\"{h10to11}\",\"h11to12\":\"{h11to12}\",\"h14to15\":\"{h14to15}\",\"h15to16\":\"{h15to16}\",\"h16to17\":\"{h16to17}\"}";
+        String assignHoursJSONResult = "";
         String JSONRow;
-
         con = db.connect();
-
         try {
-
-            //prelievo ore disponibili
+            //fetch hours available
             getAvailabilityHours(0, "Monday", 1);
-
-            //conteggio skills manutentori
-            skills = getSkill(0, 0);
+            //count maintainers' skills
+            skills = getSkill(0, 2);
             if (skills == -1) return "";
-
-            //conteggio skills totali
-            skillTot = getSkillTot(0);
+            //count skills of specification
+            skillTot = getSkillTot(2);
             if (skillTot == -1) return "";
-
-
-            JSONRow = assignMaintainerBrowseJSONFormat.replace("{ID}", Integer.toString(id));
+            //JSON realization
+            JSONRow = assignHoursBrowseJSONFormat.replace("{ID}", Integer.toString(id));
             JSONRow = JSONRow.replace("{MAINT}", name_maint);
             JSONRow = JSONRow.replace("{SKILLS}", Integer.toString(skills));
             JSONRow = JSONRow.replace("{h8to9}", Integer.toString(h8to9));
@@ -50,23 +44,21 @@ public class AssignHoursBrowseService {
             JSONRow = JSONRow.replace("{h14to15}", Integer.toString(h14to15));
             JSONRow = JSONRow.replace("{h15to16}", Integer.toString(h15to16));
             JSONRow = JSONRow.replace("{h16to17}", Integer.toString(h16to17));
-            assignMaintainerJSONResult = JSONRow;
-
+            assignHoursJSONResult = JSONRow;
             con.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-        return "[" + assignMaintainerJSONResult + "]";
-
+        return "[" + assignHoursJSONResult + "]";
     }
 
-    //prelievo ore disponibili
     private void getAvailabilityHours(int maintainer, String day, int week) {
         try {
             Statement stmt = con.createStatement();
             ResultSet rs;
+            //fetch hours available
             rs = stmt.executeQuery("SELECT a.avail_8to9, a.avail_9to10, a.avail_10to11, a.avail_11to12, a.avail_14to15, a.avail_15to16, a.avail_16to17, m.name, a.id FROM maintainer AS m, availability AS a WHERE a.id_maint=m.id AND a.id_maint=" + maintainer + " AND a.day=\"" + day + "\"" + " AND a.week=\"" + week + "\"");
+            //set variabiles
             while (rs.next()) {
                 h8to9 = rs.getInt(1);
                 h9to10 = rs.getInt(2);
@@ -77,19 +69,19 @@ public class AssignHoursBrowseService {
                 h16to17 = rs.getInt(7);
                 name_maint = rs.getString(8);
                 id = rs.getInt(9);
-
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    //conteggio skills manutentori
     private int getSkill(int maintainer, int specifications) {
         try {
             Statement stmt = con.createStatement();
             ResultSet rs;
+            //count maintainers' skills
             rs = stmt.executeQuery("SELECT COUNT(*) FROM skill_maintainer_view AS sm, skill_need_view AS sn WHERE sm.skill = sn.skill AND sm.id=" + maintainer + " AND sn.specifications=" + specifications);
+            //set variabile
             if (rs.next())
                 return rs.getInt(1);
         } catch (Exception e) {
@@ -98,12 +90,13 @@ public class AssignHoursBrowseService {
         return -1;
     }
 
-    //conteggio skill totali
     private int getSkillTot(int specifications) {
         try {
             Statement stmt = con.createStatement();
             ResultSet rs;
+            //count skills of specification
             rs = stmt.executeQuery("SELECT COUNT(*) FROM need WHERE specifications=" + specifications);
+            //set variabile
             if (rs.next())
                 return rs.getInt(1);
         } catch (Exception e) {
@@ -111,5 +104,4 @@ public class AssignHoursBrowseService {
         }
         return -1;
     }
-
 }

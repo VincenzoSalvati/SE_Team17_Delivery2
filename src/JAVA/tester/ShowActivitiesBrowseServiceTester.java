@@ -12,6 +12,5 @@ public class ShowActivitiesBrowseServiceTester {
         ShowActivitiesBrowseService service = new ShowActivitiesBrowseService();
         System.out.println(service.getShowActivitiesBrowseToJSON(db));
     }
-
 }
 

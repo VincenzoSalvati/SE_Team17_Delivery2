@@ -1,19 +1,18 @@
 class BrowseController {
 
     constructor() {
-
     }
 
-    initBrowseView(activity, week, specifications, maintainer, day) {
+    initBrowseView(week, specifications, maintainer, day) {
         let microServiceEndpoints = [
             // 0) JSON Static, we used it for defining the data interface of a generic record for updating
             "jsonprototypes/address-book-record-prototype.json",
             // 1) JSON Static, we used it for defining the data interface of a new record for adding
             "jsonprototypes/address-book-new-record-prototype.json",
             // 2) A PHP implementation of JSON service
-            "services/address-book-record-get.php?activity=" + activity,
+            "services/address-book-record-get.php?",
             // 3) A Java JSP implementation of JSON service
-            "http://" + JAVA_TOMCAT_HOST + "/Esame/4_assignHours.jsp?activity=" + activity + "&week=" + week + "&specifications=" + specifications + "&maintainer=" + maintainer + "&day=" + day
+            "http://" + JAVA_TOMCAT_HOST + "/Esame/4_AssignHours.jsp?week=" + week + "&specifications=" + specifications + "&maintainer=" + maintainer + "&day=" + day
         ];
         let selectedMicroServiceEndpoint = microServiceEndpoints[3];
         let controller = this;
@@ -22,9 +21,9 @@ class BrowseController {
         }).done(function () {
             controller.showMessageStatus("green", "All done");
         }).fail(function () {
-            controller.showMessageStatus("red", "Error while requesting service: " + controller.serviceEndPoint);
+            controller.showMessageStatus("red", "Error while requesting service: " + selectedMicroServiceEndpoint);
         });
-        this.showMessageStatus("black", "Requesting data from service: " + this.serviceEndPoint);
+        this.showMessageStatus("black", "Requesting data from service: " + selectedMicroServiceEndpoint);
     }
 
     renderGUI(data) {
@@ -53,6 +52,7 @@ class BrowseController {
     }
 
     showMessageStatus(color, message) {
-        $("#request-status").css("color", color).html(message);
+        $("#request-status").css("color", color)
+            .html(message);
     }
 }

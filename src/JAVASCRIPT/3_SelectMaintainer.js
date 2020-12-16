@@ -1,4 +1,4 @@
-function next(d) {
+function selectMaintainer(d) {
     $(".cell").click(function () {
         var $row = $(this).closest("tr");
         var $maintainer = $row.find(".id").text();
@@ -17,6 +17,6 @@ function next(d) {
             $perc = $row.find(".link_sat").text().replace("%", "");
         else if (d === sun)
             $perc = $row.find(".link_sun").text().replace("%", "");
-        location.href = "4_assignHours.html?activity=" + activity + "&week=" + week + "&time=" + estimatedTime + "&specifications=" + specifications + "&maintainer=" + $maintainer + "&day=" + d + "&strActivity=" + stringActivity + "&strWorkNote=" + stringWorkNote + "&perc=" + $perc;
+        location.href = "4_AssignHours.html?activity=" + activity + "&week=" + week + "&time=" + estimatedTime + "&specifications=" + specifications + "&maintainer=" + $maintainer + "&day=" + d + "&strActivity=" + stringActivity + "&strWorkNote=" + stringWorkNote + "&perc=" + $perc;
     });
 }

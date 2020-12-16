@@ -1,7 +1,6 @@
 var day = "";
 var dat = new Date();
 var d = dat.getDay();
-document.getElementById("numero").innerHTML = dat.getDate();
 if (d === 1) {
     day = "Monday";
 } else if (d === 2) {
@@ -17,4 +16,6 @@ if (d === 1) {
 } else if (d === 0) {
     day = "Sunday";
 }
+
+document.getElementById("numero").innerHTML = dat.getDate();
 document.getElementById("giorno").innerHTML = day;

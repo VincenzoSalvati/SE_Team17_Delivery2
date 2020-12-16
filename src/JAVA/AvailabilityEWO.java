@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 
 @SuppressWarnings("SqlResolve")
 public class AvailabilityEWO {
-
     private final Connection con;
     public int dbOperationStatusCode;
     public String dbOperationMessage;
@@ -25,7 +24,6 @@ public class AvailabilityEWO {
         this.con = db.connect();
     }
 
-    //id availability
     public int getId() {
         return id;
     }
@@ -34,7 +32,6 @@ public class AvailabilityEWO {
         this.id = id;
     }
 
-    //id_maintainer
     public int getIdMaint() {
         return id_maint;
     }
@@ -132,7 +129,7 @@ public class AvailabilityEWO {
     public void update() {
         try {
             String query = "UPDATE Availability SET " +
-                    "avail_8to9 = ?, avail_9to10 = ?, avail_10to11 = ?, avail_11to12 = ?, avail_14to15 = ?, avail_15to16 = ?, avail_16to17 = ? WHERE id_maint= ? AND day= ?";
+                    "avail_8to9 = ?, avail_9to10 = ?, avail_10to11 = ?, avail_11to12 = ?, avail_14to15 = ?, avail_15to16 = ?, avail_16to17 = ? WHERE id_maint= ? AND day= ? AND week=?";
             PreparedStatement preparedStmt = this.con.prepareStatement(query);
             preparedStmt.setInt(1, this.getAvail_8to9());
             preparedStmt.setInt(2, this.getAvail_9to10());
@@ -143,6 +140,7 @@ public class AvailabilityEWO {
             preparedStmt.setInt(7, this.getAvail_16to17());
             preparedStmt.setInt(8, this.getIdMaint());
             preparedStmt.setString(9, this.getDay());
+            preparedStmt.setInt(10, this.getWeek());
             preparedStmt.execute();
             this.dbOperationStatusCode = 0;
             this.dbOperationMessage = "Record updated";
@@ -151,5 +149,4 @@ public class AvailabilityEWO {
             this.dbOperationMessage = "Record not updated: " + e.getMessage();
         }
     }
-
 }

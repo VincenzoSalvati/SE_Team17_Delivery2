@@ -10,7 +10,6 @@ public class AssignMaintainerBrowseServiceJSPTester {
         MySqlDbConnection db = MySqlDbConnection.getInstance();
         //Test JSON
         AssignMaintainerBrowseServiceJSP service = new AssignMaintainerBrowseServiceJSP();
-        System.out.println(service.getAssignMaintainerBrowseToJSONJSP(db, 2, 1, 2));
+        System.out.println(service.getAssignMaintainerBrowseToJSONJSP(db, 2));
     }
-
 }

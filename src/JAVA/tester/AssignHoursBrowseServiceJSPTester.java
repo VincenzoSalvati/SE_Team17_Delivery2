@@ -10,7 +10,6 @@ public class AssignHoursBrowseServiceJSPTester {
         MySqlDbConnection db = MySqlDbConnection.getInstance();
         //Test JSON
         AssignHoursBrowseServiceJSP service = new AssignHoursBrowseServiceJSP();
-        System.out.println(service.getAssignHoursBrowseToJSONJSP(db, 2, 1, 2, 0, "Monday"));
+        System.out.println(service.getAssignHoursBrowseToJSONJSP(db, 1, 2, 0, "Monday"));
     }
-
 }

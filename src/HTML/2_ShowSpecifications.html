@@ -3,9 +3,9 @@
 
 <head>
     <!-- CSS -->
-    <link href="../CSS/2_showSpecifications.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/2_ShowSpecifications.css" rel="stylesheet" type="text/css">
 
-    <title>Show Specifications</title>
+    <title>Show specifications</title>
 </head>
 
 <body>
@@ -63,7 +63,7 @@
         </tr>
         <tr>
             <td>
-                <button class="button buttonEdit" onclick="Popup({Id})">EDIT</button>
+                <button class="button buttonEdit" onclick="popupEditWorkNote({Id})">EDIT</button>
             </td>
             <td class="panel">
                 <div class="panelElem panelElemSMP">
@@ -80,7 +80,7 @@
             <td class="strSkills" id="strSkl" style="display:none;"></td>
             <td class="strWorkNote" id="strWorkNot" style="display:none;"></td>
             <td>
-                <button class="button buttonForward" onclick="next()">FORWARD</button>
+                <button class="button buttonForward" onclick="selectForward()">FORWARD</button>
             </td>
         </tr>
     </template>
@@ -88,7 +88,7 @@
     <tbody id="specifications-rows"></tbody>
     <tfoot>
     <tr>
-        <th colspan="5">
+        <th colspan="6">
             <span id="request-status"></span>
         </th>
     </tr>
@@ -100,7 +100,7 @@
 
 <!-- JavaScript JS -->
 <script src="../JAVASCRIPT/localhost.js"></script>
-<script src="../JAVASCRIPT/comeToHome.js" type="text/javascript"></script>
+<script src="../JAVASCRIPT/ComeToHome.js" type="text/javascript"></script>
 <script src="../JAVASCRIPT/2_Constant.js" type="text/javascript"></script>
 <script src="../JAVASCRIPT/2_PopupEdit.js"></script>
 <script src="../JAVASCRIPT/2_SelectForward.js" type="text/javascript"></script>

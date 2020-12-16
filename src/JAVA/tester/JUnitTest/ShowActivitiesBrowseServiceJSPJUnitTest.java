@@ -9,7 +9,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ShowActivitiesBrowseServiceJSPJUnitTest extends TestCase {
-
     private ShowActivitiesBrowseServiceJSP service;
     private MySqlDbConnection db;
 
@@ -26,11 +25,6 @@ public class ShowActivitiesBrowseServiceJSPJUnitTest extends TestCase {
     }
 
     @Order(2)
-    protected void tearDown() {
-        service = null;
-    }
-
-    @Order(3)
     public final void testGetShowActivitiesBrowseToJSONJSP() {
         String jsonResultExpected = "[{\"id\":\"0\",\"area\":\"Fisciano - Molding\",\"type\":\"Mechanical\",\"estim_time\":\"120\"}," +
                 "{\"id\":\"1\",\"area\":\"Nusco - Carpentery\",\"type\":\"Electric\",\"estim_time\":\"30\"}," +
@@ -42,5 +36,9 @@ public class ShowActivitiesBrowseServiceJSPJUnitTest extends TestCase {
         assertNotSame(jsonResultExpected, jsonResultActual2);
     }
 
+    @Order(3)
+    protected void tearDown() {
+        service = null;
+    }
 }
 

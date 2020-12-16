@@ -13,5 +13,4 @@ public class ShowSpecificationsEWOBrowseServiceTester {
         System.out.println(service.getShowSpecificationsEWOBrowseToJSON(db));
         System.out.println(service.getSkills(db));
     }
-
 }

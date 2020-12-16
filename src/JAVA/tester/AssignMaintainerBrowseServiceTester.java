@@ -12,5 +12,4 @@ public class AssignMaintainerBrowseServiceTester {
         AssignMaintainerBrowseService service = new AssignMaintainerBrowseService();
         System.out.println(service.getAssignMaintainerBrowseToJSON(db));
     }
-
 }

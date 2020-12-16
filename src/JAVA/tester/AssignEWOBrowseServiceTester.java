@@ -12,5 +12,4 @@ public class AssignEWOBrowseServiceTester {
         AssignEWOBrowseService service = new AssignEWOBrowseService();
         System.out.println(service.getAssignEWOBrowseToJSON(db));
     }
-
 }

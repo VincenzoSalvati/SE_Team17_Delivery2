@@ -1,4 +1,3 @@
-// noinspection JSJQueryEfficiency
 class BrowseController {
 
     constructor() {
@@ -11,25 +10,24 @@ class BrowseController {
             // 1) JSON Static, we used it for defining the data interface of a new record for adding
             "jsonprototypes/address-book-new-record-prototype.json",
             // 2) A PHP implementation of JSON service
-            "services/address-book-record-get.php?activity=",
+            "services/address-book-record-get.php?",
             // 3) A Java JSP implementation of JSON service
-            "http://" + JAVA_TOMCAT_HOST + "/Esame/8_showTickets.jsp?week=" + week
+            "http://" + JAVA_TOMCAT_HOST + "/Esame/8_ShowInProgressEWO.jsp?week=" + week
         ];
         let selectedMicroServiceEndpoint = microServiceEndpoints[3];
         let controller = this;
         $.getJSON(selectedMicroServiceEndpoint, function (data) {
             controller.renderGUI(data);
         }).done(function () {
+        }).done(function () {
             controller.showMessageStatus("green", "All done");
         }).fail(function () {
-            controller.showMessageStatus("red", "Error while requesting service: " + controller.serviceEndPoint);
+            controller.showMessageStatus("red", "Error while requesting service: " + selectedMicroServiceEndpoint);
         });
-
-        this.showMessageStatus("black", "Requesting data from service: " + this.serviceEndPoint);
+        this.showMessageStatus("black", "Requesting data from service: " + selectedMicroServiceEndpoint);
     }
 
     renderGUI(data) {
-        let controller = this;
         let staticHtml = $("#ewo-row-template").html();
         $.each(data, function (index, obj) {
             let row = staticHtml;
@@ -42,7 +40,6 @@ class BrowseController {
             row = row.replace(/{State}/ig, obj.state);
             row = row.replace()
             $('#ewo-rows').append(row);
-
         });
         if (data.length === 0) {
             $("tfoot :first-child").hide();
@@ -51,9 +48,7 @@ class BrowseController {
     }
 
     showMessageStatus(color, message) {
-        $("#ewo-request-status").css("color", color);
-        $("#ewo-request-status").html(message);
-        $("#state-request-status").css("color", color);
-        $("#state-request-status").html(message);
+        $("#request-status").css("color", color)
+            .html(message);
     }
 }

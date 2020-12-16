@@ -3,11 +3,9 @@ package JAVA;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-@SuppressWarnings("ThrowablePrintedToSystemOut")
+@SuppressWarnings({"ThrowablePrintedToSystemOut", "FieldMayBeFinal"})
 public class MySqlDbConnection {
-
     private static MySqlDbConnection instance = null;
-
     private String dbDriver = "jdbc:mysql";
     private String dbHost = "localhost";
     private String dbPort = "3306";
@@ -74,6 +72,5 @@ public class MySqlDbConnection {
             return null;
         }
     }
-
 }
 

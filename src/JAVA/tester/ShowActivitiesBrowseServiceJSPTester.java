@@ -12,6 +12,5 @@ public class ShowActivitiesBrowseServiceJSPTester {
         ShowActivitiesBrowseServiceJSP service = new ShowActivitiesBrowseServiceJSP();
         System.out.println(service.getShowActivitiesBrowseToJSONJSP(db, 1));
     }
-
 }
 

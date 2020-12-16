@@ -2,21 +2,22 @@
 <%@ page import="JAVA.*" %>
 
 <%
-    String jsonResult;
     MySqlDbConnection db = MySqlDbConnection.getInstance();
 
-    int ids = 0;
-    String ss = "";
+    int specifications = 0;
+    String stringSkills = "";
 
-    if (request.getParameter("idS") != null && request.getParameter("skillSelected") != null) {
-        ids = Integer.parseInt(request.getParameter("idS"));
-        ss = request.getParameter("skillSelected");
+    if (request.getParameter("specifications") != null && request.getParameter("stringSkills") != null) {
+        specifications = Integer.parseInt(request.getParameter("specifications"));
+        stringSkills = request.getParameter("stringSkills");
     }
 
     ShowSpecificationsEWOBrowseServiceJSP service = new ShowSpecificationsEWOBrowseServiceJSP();
-    service.insertInNeed(db, ids, ss);
+
+    service.insertInNeed(db, specifications, stringSkills);
 
     response.setContentType("application/json");
     response.setHeader("Access-Control-Allow-Origin", "*");
 %>
+
 <%= service.getSkills(db) %>

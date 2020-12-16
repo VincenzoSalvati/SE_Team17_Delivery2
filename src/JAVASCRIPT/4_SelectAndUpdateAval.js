@@ -1,10 +1,8 @@
 var current_time = estimatedTime;
-
-//dizionario che memorizza i minuti selezionati
+//dict which stores the minutes
 var dict = [];
-//id autoincrementale che tiene traccia dei vari minuti selezionati
+//id self-incremented which tracks selected minutes
 var id = 0;
-
 var avail_8to9 = 0;
 var avail_9to10 = 0;
 var avail_10to11 = 0;
@@ -14,18 +12,16 @@ var avail_15to16 = 0;
 var avail_16to17 = 0;
 var id_availability = 0;
 
-//serve per il CHECK
+//used in order to show/hide the image of check and in order to calculate current_time
 function selectHour(checkId, d) {
     var check = document.getElementById(checkId);
     var val = parseInt(document.querySelector('.' + d).textContent.replace(" min", ""));
-    //se il valore è 0 non posso prenderlo per assegnare del tempo, dunque non mostro
     if (val === 0) {
         check.style.visibility = 'hidden';
         $('#alertWarning').show('fade');
     } else {
         if (check.style.visibility === 'visible') {
             check.style.visibility = 'hidden';
-            //rimuovo il valore deselezionato dal dizionario
             delete dict[d];
             current_time += parseInt(val);
             if (current_time > 0) {
@@ -33,13 +29,12 @@ function selectHour(checkId, d) {
             } else if (current_time <= 0) {
                 document.getElementById("totalMin").innerHTML = "Time expired";
                 disableAllButton();
-                //rendo disponibile il button Forward
+                //enable button Send
                 document.querySelector('.btn-primary').style.pointerEvents = 'auto';
                 document.querySelector('.btn-primary').style.opacity = 1;
             }
         } else {
             check.style.visibility = 'visible';
-            //aggiungo il valori selezionati al dizionario
             dict[id] = d;
             id++;
             current_time -= parseInt(val);
@@ -48,7 +43,7 @@ function selectHour(checkId, d) {
             } else if (current_time <= 0) {
                 document.getElementById("totalMin").innerHTML = "Time expired";
                 disableAllButton();
-                //rendo disponibile il button Forward
+                //enable button Send
                 document.querySelector('.btn-primary').style.pointerEvents = 'auto';
                 document.querySelector('.btn-primary').style.opacity = 1;
             }
@@ -56,7 +51,7 @@ function selectHour(checkId, d) {
     }
 }
 
-//serve a DISABILITARE la scelta dei minuti
+//disable minutes
 function disableAllButton(flag) {
     document.getElementById("link_8to9").style.cursor = 'not-allowed';
     document.getElementById("link_8to9").style.opacity = 0.5;
@@ -87,7 +82,7 @@ function disableAllButton(flag) {
     document.getElementById("link_16to17").style.pointerEvents = 'none';
 }
 
-//serve a RIABILITARE la scelta dei minuti
+//enable minutes
 function enableAllButton() {
     document.getElementById("link_8to9").style.cursor = 'default';
     document.getElementById("link_8to9").style.opacity = 1;
@@ -118,7 +113,7 @@ function enableAllButton() {
     document.getElementById("link_16to17").style.pointerEvents = 'auto';
 }
 
-//serve a RESETTARE la scelta dei minuti
+//reset current_time
 function clearHour() {
     current_time = estimatedTime;
     for (var i = 0; i < 7; i++) {
@@ -126,12 +121,12 @@ function clearHour() {
         document.getElementById("totalMin").innerHTML = estimatedTime;
     }
     enableAllButton();
-    //disabilito il button Forward
+    //disable button Send
     document.querySelector('.btn-primary').style.pointerEvents = 'none';
     document.querySelector('.btn-primary').style.opacity = 0.5;
 }
 
-//serve a PREPARARE i parametri per il DB
+//initialize data for database
 // noinspection JSUnfilteredForInLoop
 function initParams() {
     avail_8to9 = parseInt(document.querySelector('.link_8to9').textContent.replace(" min", ""));
@@ -142,59 +137,80 @@ function initParams() {
     avail_15to16 = parseInt(document.querySelector('.link_15to16').textContent.replace(" min", ""));
     avail_16to17 = parseInt(document.querySelector('.link_16to17').textContent.replace(" min", ""));
     id_availability = document.getElementById('link_id').innerHTML;
-    //ultimo elemento del dict
     lastElem = dict[id - 1];
     lastElemValue = parseInt(document.querySelector('.' + lastElem).textContent.replace(" min", ""));
     lastElemValue = Math.abs(current_time);
     for (var key in dict) {
+        // noinspection JSUnfilteredForInLoop
         switch (dict[key]) {
             case "link_8to9":
                 if (key < id - 1) {
                     avail_8to9 = 0;
-                } else if (parseInt(key) === id - 1) {
-                    avail_8to9 = lastElemValue;
+                } else {
+                    // noinspection JSUnfilteredForInLoop
+                    if (parseInt(key) === id - 1) {
+                        avail_8to9 = lastElemValue;
+                    }
                 }
                 break;
             case "link_9to10":
                 if (key < id - 1) {
                     avail_9to10 = 0;
-                } else if (parseInt(key) === id - 1) {
-                    avail_9to10 = lastElemValue;
+                } else {
+                    // noinspection JSUnfilteredForInLoop
+                    if (parseInt(key) === id - 1) {
+                        avail_9to10 = lastElemValue;
+                    }
                 }
                 break;
             case "link_10to11":
                 if (key < id - 1) {
                     avail_10to11 = 0;
-                } else if (parseInt(key) === id - 1) {
-                    avail_10to11 = lastElemValue;
+                } else {
+                    // noinspection JSUnfilteredForInLoop
+                    if (parseInt(key) === id - 1) {
+                        avail_10to11 = lastElemValue;
+                    }
                 }
                 break;
             case "link_11to12":
                 if (key < id - 1) {
                     avail_11to12 = 0;
-                } else if (parseInt(key) === id - 1) {
-                    avail_11to12 = lastElemValue;
+                } else {
+                    // noinspection JSUnfilteredForInLoop
+                    if (parseInt(key) === id - 1) {
+                        avail_11to12 = lastElemValue;
+                    }
                 }
                 break;
             case "link_14to15":
                 if (key < id - 1) {
                     avail_14to15 = 0;
-                } else if (parseInt(key) === id - 1) {
-                    avail_14to15 = lastElemValue;
+                } else {
+                    // noinspection JSUnfilteredForInLoop
+                    if (parseInt(key) === id - 1) {
+                        avail_14to15 = lastElemValue;
+                    }
                 }
                 break;
             case "link_15to16":
                 if (key < id - 1) {
                     avail_15to16 = 0;
-                } else if (parseInt(key) === id - 1) {
-                    avail_15to16 = lastElemValue;
+                } else {
+                    // noinspection JSUnfilteredForInLoop
+                    if (parseInt(key) === id - 1) {
+                        avail_15to16 = lastElemValue;
+                    }
                 }
                 break;
             case "link_16to17":
                 if (key < id - 1) {
                     avail_16to17 = 0;
-                } else if (parseInt(key) === id - 1) {
-                    avail_16to17 = lastElemValue;
+                } else {
+                    // noinspection JSUnfilteredForInLoop
+                    if (parseInt(key) === id - 1) {
+                        avail_16to17 = lastElemValue;
+                    }
                 }
                 break;
             default:
@@ -204,9 +220,9 @@ function initParams() {
 
 }
 
-//serve a AGGIORNARE il DB
+//update availability on db
 function updateDB() {
-    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/crud_availability.jsp",
+    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/Crud_availability.jsp",
         {
             id: id_availability,
             avail_8to9: avail_8to9,
@@ -218,7 +234,7 @@ function updateDB() {
             avail_16to17: avail_16to17
         }, function (data) {
         }).done(function () {
-        location.href = "1_showActivities.html?week=" + week;
+        location.href = "1_ShowActivities.html?week=" + week;
     }).fail(function () {
         alert("Error while updating database");
     });

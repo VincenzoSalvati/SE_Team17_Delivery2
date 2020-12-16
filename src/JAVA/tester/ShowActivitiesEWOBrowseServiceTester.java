@@ -1,7 +1,7 @@
 package JAVA.tester;
 
 import JAVA.MySqlDbConnection;
-import JAVA.ShowEWOBrowseService;
+import JAVA.ShowActivitiesEWOBrowseService;
 
 public class ShowActivitiesEWOBrowseServiceTester {
 
@@ -9,8 +9,7 @@ public class ShowActivitiesEWOBrowseServiceTester {
         //Database initialization
         MySqlDbConnection db = MySqlDbConnection.getInstance();
         //Test JSON
-        ShowEWOBrowseService service = new ShowEWOBrowseService();
-        System.out.println(service.getShowEWOBrowseToJSON(db));
+        ShowActivitiesEWOBrowseService service = new ShowActivitiesEWOBrowseService();
+        System.out.println(service.getShowActivitiesEWOBrowseToJSON(db));
     }
-
 }

@@ -1,11 +1,12 @@
-function Popup(idSpecifications) {
+function popupEditWorkNote(idSpecifications) {
     var new_text = prompt("Edit notes:");
     if (new_text != null)
-        save_text(idSpecifications, new_text);
+        saveNewWorkNote(idSpecifications, new_text);
 }
 
-function save_text(idSpecifications, text_mod) {
-    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/crud_specifications.jsp",
+//save new Workspace Note on db
+function saveNewWorkNote(idSpecifications, text_mod) {
+    $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/Crud_specifications.jsp",
         {
             id: idSpecifications,
             work_note: text_mod

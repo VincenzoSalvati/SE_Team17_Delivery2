@@ -5,11 +5,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 @SuppressWarnings({"SqlResolve", "FieldCanBeLocal"})
-public class ShowActivitiesEWOBrowseServiceJSP {
+public class ShowActivitiesEWOBrowseService {
     boolean removeComma = false;
     private Connection con;
 
-    public String getShowActivitiesEWOBrowseToJSONJSP(MySqlDbConnection db, int week) {
+    public String getShowActivitiesEWOBrowseToJSON(MySqlDbConnection db) {
         String showActivitiesEWOBrowseJSONFormat = "{\"id\":\"{ID}\",\"area\":\"{AREA}\",\"type\":\"{TYPE}\",\"estim_time\":\"{ESTIM_TIME}\"}";
         StringBuilder showActivitiesEWOJSONResult = new StringBuilder();
         String JSONRow;
@@ -18,7 +18,7 @@ public class ShowActivitiesEWOBrowseServiceJSP {
             Statement stmt = this.con.createStatement();
             ResultSet rs;
             //fetch EWO
-            rs = stmt.executeQuery("SELECT id, site, type, estim_time FROM activity WHERE ewo=true AND week=" + week + " AND id NOT IN (SELECT s.id_activity FROM specifications as s, inprogress as i WHERE s.id=i.specifications)");
+            rs = stmt.executeQuery("SELECT id, site, type, estim_time FROM activity WHERE ewo=true AND week=1 AND id NOT IN (SELECT s.id_activity FROM specifications as s, inprogress as i WHERE s.id=i.specifications)");
             //JSON realization
             while (rs.next()) {
                 removeComma = true;

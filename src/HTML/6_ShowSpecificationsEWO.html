@@ -2,14 +2,14 @@
 
 <head>
     <!-- Bootstrap and CSS -->
-    <link href="../CSS/6_showSpecificationsEWO.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/6_ShowSpecificationsEWO.css" rel="stylesheet" type="text/css">
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" rel="stylesheet">
-    <title>Show Specifications EWO</title>
+
+    <title>Show specifications EWO</title>
 </head>
 
 <body>
-
 <table class="tableSpecificationsEdit">
     <thead>
     <template id="specificationsEWO-row-template">
@@ -49,7 +49,6 @@
                     {Work_note}
                 </div>
             </td>
-
             <td class="panel">
                 <div class="panelElem panelElemEditIntDesc">
                     <div class="image">
@@ -58,7 +57,7 @@
                     <div class="textImage textRow">
                         Estimated time required: {Estimate_tr}
                     </div>
-                    <button class="button buttonEditTime" onclick="Popup1({Id})">EDIT TIME REQUIRED</button>
+                    <button class="button buttonEditTime" onclick="popupEditEstimTime({Id})">EDIT TIME REQUIRED</button>
                 </div>
             </td>
             <td class="panel">
@@ -71,7 +70,7 @@
                                         <table>
                                             <tbody>
                                             <tr>
-                                                <td id="rowSkill" onclick="myfunc(this,{IdSkill}, '{Skill}' )">
+                                                <td id="rowSkill" onclick="manageSkill(this,{IdSkill}, '{Skill}' )">
                                                     <a class="id" style="display: none">{IdSkill}</a>
                                                     {Skill}
                                                 </td>
@@ -84,19 +83,17 @@
                         </template>
                         <div id="skill-rows"></div>
                     </div>
-                    <button class="button buttonSubmit" id="btnSubmit" onclick="done({Id})" type="button">SUBMIT
+                    <button class="button buttonSubmit" id="btnSubmit" onclick="selectSubmit({Id})" type="button">SUBMIT
                     </button>
                     <div class="panelElem panelElemSkillsCurrent textRow">
-                        <h2>Currently set skills</h2>
+                        <h2>Current skills setted</h2>
                         <div class="panelElemSkillsCurrentList">
                             <ul id="dynamic-list-skill"></ul>
                         </div>
                     </div>
                 </div>
-                </div>
             </td>
         </tr>
-
         <tr>
             <td></td>
             <td class="panel">
@@ -107,7 +104,8 @@
                     <div class="textImage textRow">
                         {Int_des}
                     </div>
-                    <button class="button buttonEditIntType" onclick="Popup2({Id})">EDIT INTERVENTION TYPE</button>
+                    <button class="button buttonEditIntType" onclick="popupEditIntType({Id})">EDIT INTERVENTION TYPE
+                    </button>
                 </div>
             </td>
             <td class="id" style="display:none;">{Id}</td>
@@ -118,26 +116,24 @@
                 <button class="button buttonForward" onclick="selectForward()">FORWARD</button>
             </td>
         </tr>
-
     </template>
     </thead>
     <tbody id="specificationsEWO-rows"></tbody>
     <tfoot>
     <tr>
-        <th colspan="5">
+        <th colspan="6">
             <span id="request-status"></span>
         </th>
     </tr>
     </tfoot>
 </table>
 
-
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <!-- JavaScript JS -->
 <script src="../JAVASCRIPT/localhost.js"></script>
-<script src="../JAVASCRIPT/comeToHome.js" type="text/javascript"></script>
+<script src="../JAVASCRIPT/ComeToHome.js" type="text/javascript"></script>
 <script src="../JAVASCRIPT/6_Constant.js" type="text/javascript"></script>
 <script src="../JAVASCRIPT/6_EditSections.js" type="text/javascript"></script>
 <script src="../JAVASCRIPT/6_SelectForward.js" type="text/javascript"></script>

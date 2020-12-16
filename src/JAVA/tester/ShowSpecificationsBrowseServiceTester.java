@@ -12,5 +12,4 @@ public class ShowSpecificationsBrowseServiceTester {
         ShowSpecificationsBrowseService service = new ShowSpecificationsBrowseService();
         System.out.println(service.getShowSpecificationsBrowseToJSON(db));
     }
-
 }

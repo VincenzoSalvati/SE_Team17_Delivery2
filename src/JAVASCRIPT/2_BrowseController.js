@@ -1,8 +1,6 @@
-// noinspection JSJQueryEfficiency
 class BrowseController {
 
     constructor() {
-
     }
 
     initBrowseView(activity, week) {
@@ -12,9 +10,9 @@ class BrowseController {
             // 1) JSON Static, we used it for defining the data interface of a new record for adding
             "jsonprototypes/address-book-new-record-prototype.json",
             // 2) A PHP implementation of JSON service
-            "services/address-book-record-get.php?activity=" + activity,
+            "services/address-book-record-get.php",
             // 3) A Java JSP implementation of JSON service
-            "http://" + JAVA_TOMCAT_HOST + "/Esame/2_showSpecifications.jsp?activity=" + activity + "&week=" + week
+            "http://" + JAVA_TOMCAT_HOST + "/Esame/2_ShowSpecifications.jsp?activity=" + activity + "&week=" + week
         ];
         let selectedMicroServiceEndpoint = microServiceEndpoints[3];
         let controller = this;
@@ -22,6 +20,7 @@ class BrowseController {
             controller.renderGUI(data);
         }).done(function () {
         }).fail(function () {
+            controller.showMessageStatus("red", "Error while requesting service: " + selectedMicroServiceEndpoint);
         });
     }
 
@@ -53,7 +52,7 @@ class BrowseController {
     }
 
     showMessageStatus(color, message) {
-        $("#request-status").css("color", color);
-        $("#request-status").html(message);
+        $("#request-status").css("color", color)
+            .html(message);
     }
 }

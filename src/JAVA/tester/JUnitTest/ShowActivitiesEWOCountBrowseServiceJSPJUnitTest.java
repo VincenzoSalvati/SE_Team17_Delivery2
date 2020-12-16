@@ -9,7 +9,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ShowActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
-
     private ShowActivitiesEWOCountBrowseServiceJSP service;
     private MySqlDbConnection db;
 
@@ -26,17 +25,16 @@ public class ShowActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
     }
 
     @Order(2)
-    protected void tearDown() {
-        service = null;
-    }
-
-    @Order(3)
     public final void testGetShowActivitiesEWOCountBrowseToJSONJSP() {
-        String jsonResultExpected = "[{\"ewo_count\":\"3\"}]";
+        String jsonResultExpected = "[{\"ewo_count\":\"1\"}]";
         String jsonResultActual = service.getShowActivitiesEWOCountBrowseToJSONJSP(db, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
         String jsonResultActual2 = service.getShowActivitiesEWOCountBrowseToJSONJSP(db, 2);
         assertNotSame(jsonResultExpected, jsonResultActual2);
     }
 
+    @Order(3)
+    protected void tearDown() {
+        service = null;
+    }
 }

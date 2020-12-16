@@ -12,5 +12,4 @@ public class AssignHoursBrowseServiceTester {
         AssignHoursBrowseService service = new AssignHoursBrowseService();
         System.out.println(service.getAssignHoursBrowseToJSON(db));
     }
-
 }

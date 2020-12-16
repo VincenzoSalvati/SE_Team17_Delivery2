@@ -1,3 +1,3 @@
-function openTickets() {
-    location.href = "8_showTickets.html?week=" + week;
+function selectShowTickets() {
+    location.href = "8_ShowInProgressEWO.html?week=" + week;
 }

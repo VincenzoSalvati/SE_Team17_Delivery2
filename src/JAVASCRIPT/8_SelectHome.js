@@ -1,5 +1,5 @@
-function next() {
+function selectHome() {
     $(".buttonHome").click(function () {
-        location.href = "1_showActivities.html?week=" + week
+        location.href = "1_ShowActivities.html?week=" + week
     });
 }

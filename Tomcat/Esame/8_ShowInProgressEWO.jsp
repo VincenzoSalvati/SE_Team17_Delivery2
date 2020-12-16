@@ -2,19 +2,18 @@
 <%@ page import="JAVA.*" %>
 
 <%
-    String jsonResult;
-
     MySqlDbConnection db = MySqlDbConnection.getInstance();
 
     int week = 0;
+    
     if (request.getParameter("week") != null) {
         week = Integer.parseInt(request.getParameter("week"));
     }
 
-    ShowActivitiesEWOCountBrowseServiceJSP service = new ShowActivitiesEWOCountBrowseServiceJSP();
+    ShowInProgressEWOBrowseServiceJSP service = new ShowInProgressEWOBrowseServiceJSP();
 
     response.setContentType("application/json");
     response.setHeader("Access-Control-Allow-Origin", "*");
 %>
 
-<%= service.getShowActivitiesEWOCountBrowseToJSONJSP(db, week) %>
+<%= service.getShowInProgressEWOBrowseToJSONJSP(db, week) %>

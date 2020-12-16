@@ -2,21 +2,18 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap and CSS -->
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" rel="stylesheet">
-    <link href="../CSS/4_assignHours.css" rel="stylesheet">
+    <link href="../CSS/7_AssignEWO.css" rel="stylesheet">
 
-    <title>Assign hours</title>
+    <title>Assign hours EWO</title>
 </head>
 
 <body>
 <div class="navi panelNavi">
     <div class="panelNaviElem">
-        <a class="naviElem textWeek" id="week"></a>
+        <a class="naviElem textWeek" id="strWeek"></a>
     </div>
     <div class="panelNaviElem">
         <a class="naviElem" id="giorno"></a>
@@ -29,14 +26,11 @@
         <img alt="Home" class="imageHome imgHome" onclick="comeToHome()" src="../img/home.png">
     </div>
 </div>
-
 <div class="container-fluid">
-
     <div class="alert alert-success collapse" id="alert" role="alert">
         <a class="close" href="#" id="linkClose">&times;</a>
         Maintainance activity <strong>successfully</strong> assigned.
     </div>
-
     <div class="alert alert-warning collapse" id="alertWarning" role="alert">
         <a class="close" href="#" id="linkCloseWarning">&times;</a>
         <strong>Attention</strong> this Maintainer is unavailable (full-time occuped).
@@ -46,9 +40,8 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header card-header-warning">
-                        <a class="card-title" id="availMaint"></a>
-                        <a class="card-title" id="strPerc"></a>
-                        <p class="card-subtitle firstP">ll the availability of the maintainers during the day
+                        <a class="card-title">MAINTAINERS AVAILABILITY for EWO</a>
+                        <p class="card-subtitle firstP">All the availability of the maintainers during the day
                             selected.</p>
                     </div>
                     <div class="card-body table-responsive">
@@ -65,56 +58,56 @@
                                 <th>Availab. <br> 15:00-16:00</th>
                                 <th>Availab. <br> 16:00-17:00</th>
                             </tr>
-                            <template id="maintainerday-row-template">
+                            <template id="maintainerEWO-row-template">
                                 <tr>
                                     <td style="display: none"><a id="link_id">{Id}</a></td>
                                     <td><a id="link_maint"> {Maint} </a></td>
                                     <td>{Skills}</td>
                                     <td class="cell">
                                         <a class="link_8to9 cursor" href="#" id="link_8to9"
-                                           onclick="selectHour('checkId0', 'link_8to9')">
+                                           onclick="clickCell('checkId0', 'link_8to9')">
                                             {h8to9} min
                                         </a>
                                         <img class="check" id="checkId0" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_9to10 cursor" href="#" id="link_9to10"
-                                           onclick="selectHour('checkId1', 'link_9to10')">
+                                           onclick="clickCell('checkId1', 'link_9to10')">
                                             {h9to10} min
                                         </a>
                                         <img class="check" id="checkId1" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_10to11 cursor" href="#" id="link_10to11"
-                                           onclick="selectHour('checkId2', 'link_10to11')">
+                                           onclick="clickCell('checkId2', 'link_10to11')">
                                             {h10to11} min
                                         </a>
                                         <img class="check" id="checkId2" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_11to12 cursor" href="#" id="link_11to12"
-                                           onclick="selectHour('checkId3', 'link_11to12')">
+                                           onclick="clickCell('checkId3', 'link_11to12')">
                                             {h11to12} min
                                         </a>
                                         <img class="check" id="checkId3" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_14to15 cursor" href="#" id="link_14to15"
-                                           onclick="selectHour('checkId4', 'link_14to15')">
+                                           onclick="clickCell('checkId4', 'link_14to15')">
                                             {h14to15} min
                                         </a>
                                         <img class="check" id="checkId4" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_15to16 cursor" href="#" id="link_15to16"
-                                           onclick="selectHour('checkId5', 'link_15to16')">
+                                           onclick="clickCell('checkId5', 'link_15to16')">
                                             {h15to16} min
                                         </a>
                                         <img class="check" id="checkId5" src="../img/check.png">
                                     </td>
                                     <td class="cell">
                                         <a class="link_16to17 cursor" href="#" id="link_16to17"
-                                           onclick="selectHour('checkId6', 'link_16to17')">
+                                           onclick="clickCell('checkId6', 'link_16to17')">
                                             {h16to17} min
                                         </a>
                                         <img class="check" id="checkId6" src="../img/check.png">
@@ -122,10 +115,11 @@
                                 </tr>
                             </template>
                             </thead>
-                            <tbody id="maintainer-rows"></tbody>
+                            <tbody id="maintainerEWO-rows"></tbody>
                             <tfoot>
                             <tr>
                                 <th colspan="6">
+                                    <span id="request-status"></span>
                                 </th>
                             </tr>
                             </tfoot>
@@ -137,12 +131,14 @@
                                 </button>
                             </div>
                         </div>
-
                         <h2 class="estimTimeText">Estimated time <span class="badge badge-secondary"
                                                                        id="totalMin"></span></h2>
+                        <h2 class="estimTimeText">Assigned time <span class="badge badge-secondary"
+                                                                      id="assMin"></span></h2>
+                        <h2 class="estimTimeText">Time to be assigned <span class="badge badge-secondary"
+                                                                            id="toBeAssMin"></span></h2>
                     </div>
                 </div>
-
                 <div class="card card-workspace">
                     <div class="card-header card-header-warning">
                         <h4 class="card-title">Workspace Notes</h4>
@@ -153,36 +149,37 @@
                         <div class="panelElemWorkNote textRow" id="strWorkNote"></div>
                     </div>
                 </div>
+                <div class="card card-skill">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title">Skill needed</h4>
+                        <p class="card-subtitle">All the skill needed for the maintenance activity.</p>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <div class="panelElemSkills textRow" id="strSkills"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- jQuery and Bootstrap Bundle (includes Popper) -->
-<script crossorigin="anonymous"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script crossorigin="anonymous"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <!-- JavaScript JS -->
 <script src="../JAVASCRIPT/localhost.js"></script>
-<script src="../JAVASCRIPT/comeToHome.js" type="text/javascript"></script>
-<script src="../JAVASCRIPT/4_Constant.js" type="text/javascript"></script>
-<script src="../JAVASCRIPT/4_Date.js" type="text/javascript"></script>
-<script src="../JAVASCRIPT/4_SelectAndUpdateAval.js"></script>
-<script src="../JAVASCRIPT/4_BrowseController.js" type="text/javascript"></script>
+<script src="../JAVASCRIPT/ComeToHome.js" type="text/javascript"></script>
+<script src="../JAVASCRIPT/7_Constant.js" type="text/javascript"></script>
+<script src="../JAVASCRIPT/7_Date.js" type="text/javascript"></script>
+<script src="../JAVASCRIPT/7_SelectAndUpdateAval.js"></script>
+<script src="../JAVASCRIPT/7_BrowseController.js" type="text/javascript"></script>
 
 <script type="application/javascript">
     $(document).ready(function () {
         $('#forward').click(function () {
-            $('#alert').show('fade');
             initParams();
             updateDB();
+            $('#alert').show('fade');
         });
         $('#linkClose').click(function () {
             $('#alert').hide('fade');
@@ -193,13 +190,11 @@
         });
     });
 </script>
-
 <script type="application/javascript">
     $(document).ready(function () {
         let controller = new BrowseController();
-        controller.initBrowseView(activity, week, specifications, maintainer, day);
+        controller.initBrowseView(week, specifications, day);
     });
 </script>
 </body>
-
 </html>

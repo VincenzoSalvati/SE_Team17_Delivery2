@@ -1,20 +1,9 @@
 class BrowseController {
 
-    /**
-     *  The service endpoint providing JSON data
-     */
-
     constructor() {
-
     }
 
-    /**
-     * Fetch JSON data from the micro service, then call a function for rendering the View
-     *
-     * @use renderGUI(), showMessageStatus()
-     */
-    initBrowseView(activity, week, specifications, day) {
-        console.log("http://" + JAVA_TOMCAT_HOST + "7_assignEWO.jsp?activity=" + activity + "&week=" + week + "&specifications=" + specifications + "&day=" + day)
+    initBrowseView(week, specifications, day) {
         let microServiceEndpoints = [
             // 0) JSON Static, we used it for defining the data interface of a generic record for updating
             "../JSON/file.json",
@@ -23,19 +12,21 @@ class BrowseController {
             "jsonprototypes/address-book-new-record-prototype.json",
 
             // 2) A PHP implementation of JSON service
-            "services/address-book-record-get.php?activity=" + activity,
+            "services/address-book-record-get.php",
 
             // 3) A Java JSP implementation of JSON service
-            "http://" + JAVA_TOMCAT_HOST + "/Esame/7_assignEWO.jsp?activity=" + activity + "&week=" + week + "&specifications=" + specifications + "&day=" + day
+            "http://" + JAVA_TOMCAT_HOST + "/Esame/7_AssignEWO.jsp?week=" + week + "&specifications=" + specifications + "&day=" + day
         ];
-
         let selectedMicroServiceEndpoint = microServiceEndpoints[3];
         let controller = this;
         $.getJSON(selectedMicroServiceEndpoint, function (data) {
             controller.renderGUI(data);
         }).done(function () {
+            controller.showMessageStatus("green", "All done");
         }).fail(function () {
+            controller.showMessageStatus("red", "Error while requesting service: " + selectedMicroServiceEndpoint);
         });
+        this.showMessageStatus("black", "Requesting data from service: " + selectedMicroServiceEndpoint);
     }
 
     renderGUI(data) {
@@ -61,6 +52,7 @@ class BrowseController {
     }
 
     showMessageStatus(color, message) {
-        $("#request-status").css("color", color).html(message);
+        $("#request-status").css("color", color)
+            .html(message);
     }
 }

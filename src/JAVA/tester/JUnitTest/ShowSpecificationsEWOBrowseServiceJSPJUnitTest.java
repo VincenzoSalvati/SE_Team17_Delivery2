@@ -9,7 +9,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ShowSpecificationsEWOBrowseServiceJSPJUnitTest extends TestCase {
-
     private ShowSpecificationsEWOBrowseServiceJSP service;
     private MySqlDbConnection db;
 
@@ -26,11 +25,6 @@ public class ShowSpecificationsEWOBrowseServiceJSPJUnitTest extends TestCase {
     }
 
     @Order(2)
-    protected void tearDown() {
-        service = null;
-    }
-
-    @Order(3)
     public final void testGetShowSpecificationsBrowseToJSONJSP() {
         String jsonResultExpected = "[{\"id\":\"4\",\"work_note\":\"The plant is closed from 00/00/20 to 00/00/20; On the remaining days, it is possible to intervene only after 10:00\",\"int_des\":\"Replacement of robot 20 welding cables\",\"id_activity\":\"EWO 4 - Fisciano - Molding\",\"week_activity\":\"1\",\"ewo_activity\":\"true\",\"estimate_tr\":\"120\"}]";
         String jsonResultActual = service.getShowSpecificationsEWOBrowseToJSONJSP(db, 4, 1);
@@ -39,7 +33,7 @@ public class ShowSpecificationsEWOBrowseServiceJSPJUnitTest extends TestCase {
         assertNotSame(jsonResultExpected, jsonResultActual2);
     }
 
-    @Order(4)
+    @Order(3)
     public final void testGetSingleSkill() {
         String jsonResultExpected = "[{\"id\":\"1\",\"skill\":\"Electrical Maintainance\"}," +
                 "{\"id\":\"2\",\"skill\":\"Knowledge of cables types\"}," +
@@ -49,4 +43,8 @@ public class ShowSpecificationsEWOBrowseServiceJSPJUnitTest extends TestCase {
         assertEquals(jsonResultExpected, jsonResultActual);
     }
 
+    @Order(4)
+    protected void tearDown() {
+        service = null;
+    }
 }

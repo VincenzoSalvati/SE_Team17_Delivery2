@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 
 @SuppressWarnings("SqlResolve")
 public class Specifications {
-
     private final Connection con;
     public int dbOperationStatusCode;
     public String dbOperationMessage;
@@ -59,7 +58,6 @@ public class Specifications {
             this.dbOperationMessage = "Record not updated: " + e.getMessage();
         }
     }
-
 }
 
 

@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 
 @SuppressWarnings("SqlResolve")
 public class Availability {
-
     private final Connection con;
     public int dbOperationStatusCode;
     public String dbOperationMessage;
@@ -20,9 +19,8 @@ public class Availability {
     private int avail_15to16;
     private int avail_16to17;
 
-    public Availability(MySqlDbConnection db, int id) {
+    public Availability(MySqlDbConnection db) {
         this.con = db.connect();
-        this.id = id;
     }
 
     public int getId() {
@@ -140,7 +138,6 @@ public class Availability {
             this.dbOperationMessage = "Record not updated: " + e.getMessage();
         }
     }
-
 }
 
 

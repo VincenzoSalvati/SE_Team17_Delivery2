@@ -5,11 +5,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 @SuppressWarnings({"SqlResolve", "FieldCanBeLocal"})
-public class ShowActivitiesEWOCountBrowseServiceJSP {
+public class ShowActivitiesEWOCountBrowseService {
     boolean removeComma = false;
     private Connection con;
 
-    public String getShowActivitiesEWOCountBrowseToJSONJSP(MySqlDbConnection db, int week) {
+    public String getShowActivitiesEWOCountBrowseToJSON(MySqlDbConnection db) {
         String showActivitiesEWOCountBrowseJSONFormat = "{\"ewo_count\":\"{EWO_COUNT}\"}";
         StringBuilder showActivitiesEWOCountJSONResult = new StringBuilder();
         String JSONRow;
@@ -18,7 +18,7 @@ public class ShowActivitiesEWOCountBrowseServiceJSP {
             Statement stmt = this.con.createStatement();
             ResultSet rs;
             //fetch EWO
-            rs = stmt.executeQuery("SELECT count(*) FROM activity WHERE ewo=true AND week=" + week + " AND id NOT IN (SELECT s.id_activity FROM specifications as s, inprogress as i WHERE s.id=i.specifications)");
+            rs = stmt.executeQuery("SELECT count(*) FROM activity WHERE ewo=true AND week=1 AND id NOT IN (SELECT s.id_activity FROM specifications as s, inprogress as i WHERE s.id=i.specifications)");
             //JSON realization
             while (rs.next()) {
                 removeComma = true;

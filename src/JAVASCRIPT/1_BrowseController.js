@@ -1,4 +1,3 @@
-// noinspection JSJQueryEfficiency
 class BrowseController {
 
     constructor() {
@@ -13,7 +12,7 @@ class BrowseController {
             // 2) A PHP implementation of JSON service
             "services/address-book-record-get.php?activity=",
             // 3) A Java JSP implementation of JSON service
-            "http://" + JAVA_TOMCAT_HOST + "/Esame/1_showActivities.jsp?week=" + week
+            "http://" + JAVA_TOMCAT_HOST + "/Esame/1_ShowActivities.jsp?week=" + week
         ];
         let selectedMicroServiceEndpoint = microServiceEndpoints[3];
         let controller = this;
@@ -22,10 +21,9 @@ class BrowseController {
         }).done(function () {
             controller.showMessageStatus("green", "All done");
         }).fail(function () {
-            controller.showMessageStatus("red", "Error while requesting service: " + controller.serviceEndPoint);
+            controller.showMessageStatus("red", "Error while requesting service: " + selectedMicroServiceEndpoint);
         });
-
-        this.showMessageStatus("black", "Requesting data from service: " + this.serviceEndPoint);
+        this.showMessageStatus("black", "Requesting data from service: " + selectedMicroServiceEndpoint);
     }
 
     renderGUI(data) {
@@ -47,7 +45,7 @@ class BrowseController {
     }
 
     showMessageStatus(color, message) {
-        $("#request-status").css("color", color);
-        $("#request-status").html(message);
+        $("#request-status").css("color", color)
+            .html(message);
     }
 }
