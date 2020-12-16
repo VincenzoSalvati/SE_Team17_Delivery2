@@ -41,22 +41,22 @@ body {
 }
 
 .panelElem {
-    width: 50%;
+    width: 100%;
+    height: 100%;
     margin: auto;
-    padding: 20px;
 }
 
 .panelElemIntDesc {
-    width: 40%;
+    width: 100%;
 }
 
 .panelElemSkills {
-    width: 80%;
+    width: 85%;
 }
 
 .panelElemSkillsCurrent {
     margin-top: 40px;
-    width: 80%;
+    width: 90%;
     text-align: center;
 }
 
@@ -71,7 +71,7 @@ body {
 }
 
 .panelElemEditIntDesc {
-    width: 60%;
+    width: 100%;
 }
 
 .textCol {

@@ -40,22 +40,24 @@ function clickCell(checkId, d) {
             avail_16to17 = parseInt(row.find(".link_16to17").html().replaceAll(" min", ""));
             //disableOtherRows();
 
-            console.log('OK');
+            console.log('STEP ', cellCount);
             //inserisco nel dizionario l'id della cella selezionata, se già presente setto check a false
             //altrimenti lo setto a true
 
             for (var key in CellSelected) {
                 // noinspection JSUnfilteredForInLoop
-                if(d===CellSelected[key])
+                if(d===CellSelected[key]){
                     console.log('ELEM ALREADY EXIST IN DICT', d);
-                check=false;
+                    check=false;
+                }
             }
 
             //quindi se check == false non inserisco di nuovo l'elemento
-            if(CellSelected.length === 0 && check){
+            if(check){
                 console.log('ELEM ADD TO DICT', d);
                 CellSelected[cellCount] = d;
                 cellCount++;
+                console.log('CURRENT COUNT', cellCount)
             }
 
             if (idMaint === currentIdSelected) {
@@ -108,6 +110,11 @@ function clearHour() {
     for (var key in dict) {
         // noinspection JSUnfilteredForInLoop
         delete dict[key];
+    }
+
+    for (var key in CellSelected) {
+        // noinspection JSUnfilteredForInLoop
+        delete CellSelected[key];
     }
     //disable button Send
     document.querySelector('.btn-primary').style.pointerEvents = 'none';
