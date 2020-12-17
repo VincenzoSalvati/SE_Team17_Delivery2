@@ -26,7 +26,7 @@ public class ShowActivitiesEWOCountBrowseServiceJSPJUnitTest extends TestCase {
 
     @Order(2)
     public final void testGetShowActivitiesEWOCountBrowseToJSONJSP() {
-        String jsonResultExpected = "[{\"ewo_count\":\"1\"}]";
+        String jsonResultExpected = "[{\"ewo_count\":\"2\"}]";
         String jsonResultActual = service.getShowActivitiesEWOCountBrowseToJSONJSP(db, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
     }

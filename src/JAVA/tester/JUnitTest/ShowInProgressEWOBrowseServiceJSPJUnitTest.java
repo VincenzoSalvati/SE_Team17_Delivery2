@@ -26,8 +26,8 @@ public class ShowInProgressEWOBrowseServiceJSPJUnitTest extends TestCase {
 
     @Order(2)
     public final void testGetShowActivitiesBrowseToJSONJSP() {
-        String jsonResultExpected = "[{\"id\":\"4\",\"area\":\"Fisciano - Molding\",\"type\":\"Mechanical\",\"estim_time\":\"120\",\"department\":\"Received\",\"maintainer\":\"Sent\",\"state\":\"Closed\"}," +
-                "{\"id\":\"5\",\"area\":\"Nusco - Carpentery\",\"type\":\"Electric\",\"estim_time\":\"30\",\"department\":\"Sent\",\"maintainer\":\"Received\",\"state\":\"NotStarted\"}]";
+        String jsonResultExpected = "[{\"id\":\"4\",\"area\":\"Fisciano - Molding\",\"type\":\"Mechanical\",\"estim_time\":\"120\",\"department\":\"Received\",\"maintainer\":\"Read\",\"state\":\"Closed\"}," +
+                "{\"id\":\"5\",\"area\":\"Nusco - Carpentery\",\"type\":\"Electric\",\"estim_time\":\"30\",\"department\":\"NotSent\",\"maintainer\":\"Received\",\"state\":\"InProgress\"}]";
         String jsonResultActual = service.getShowInProgressEWOBrowseToJSONJSP(db, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
     }
