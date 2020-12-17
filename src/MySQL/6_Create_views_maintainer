@@ -1,16 +1,14 @@
 use project;
 
-drop view maintainer_assignment cascade;
+#drop view maintainer_assignment cascade;
 
 create view maintainer_assignment as select maintainer, week_activity, id_activity, ewo_activity, int_des, work_note
 from InProgress as i, Specifications as s, Maintainer as m
 where i.specifications = s.id
 and i.maintainer = m.id;
 
-drop view maintainer_activity_assignment cascade;
+#drop view maintainer_activity_assignment cascade;
 
 create view maintainer_activity_assignment as select maintainer, week_activity, site, type, estim_time, int_des, work_note, ewo_activity
 from maintainer_assignment as m, Activity as a
 where m.week_activity = a.id;
-
-select * from maintainer_activity_assignment where maintainer = 2;

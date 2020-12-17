@@ -2,12 +2,12 @@
 # noinspection SqlWithoutWhereForFile
 use project;
 
-delete
-from Activity;
-delete
-from Specifications;
-delete
-from Skill;
+#delete
+#from Activity;
+#delete
+#from Specifications;
+#delete
+#from Skill;
 
 #Insert Activity
 insert into Activity (id, week, ewo, site, type, estim_time)
