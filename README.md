@@ -5,6 +5,7 @@
 È possibile effettuare l'accesso al sistema in qualità di Planner o Maintainer. Per autenticarsi come Maintainer, è necessario inserire come Username l'id del Maintainer e come password, una stringa maggiore di 5 caratteri. Gli utenti registrati sono 2 Maintainer e 1 Planner. 
 
 Maintainer
+
 username: 1 
 password: pass1
 
@@ -12,6 +13,7 @@ username: 2
 password: pass2
 
 Planner
+
 username: root
 password: admin
 
