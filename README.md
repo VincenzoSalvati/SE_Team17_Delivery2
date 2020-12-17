@@ -4,13 +4,13 @@
 
 È possibile effettuare l'accesso al sistema in qualità di Planner o Maintainer. Per autenticarsi come Maintainer, è necessario inserire come Username l'id del Maintainer e come password, una stringa maggiore di 5 caratteri. Gli utenti registrati sono:
 Maintainer:
-Username: 1
-Password: pass1
-Username: 2
-Password: pass2
+Username: 1,
+Password: pass1;
+Username: 2,
+Password: pass2.
 Il Planner può accedere con le seguenti credenziali:
-Username: root
-Password: admin
+Username: root,
+Password: admin.
 
 ## Tomcat
 
