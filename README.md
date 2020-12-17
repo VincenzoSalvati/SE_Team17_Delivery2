@@ -1,5 +1,9 @@
 # SE_Team17_Delivery2
 
+## Init
+
+Per un corretto funzionamento del programma, è necessario eseguire come primo file 0_LoginPage.html.
+
 ## Login
 
 È possibile effettuare l'accesso al sistema in qualità di Planner o Maintainer. Per autenticarsi come Maintainer, è necessario inserire come Username l'id del Maintainer e come password, una stringa maggiore di 5 caratteri. Gli utenti registrati sono 2 Maintainer e 1 Planner. 
