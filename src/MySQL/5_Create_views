@@ -2,8 +2,8 @@
 
 use project;
 
-drop VIEW skill_maintainer_view;
-drop VIEW skill_need_view;
+#drop VIEW skill_maintainer_view;
+#drop VIEW skill_need_view;
 
 CREATE VIEW skill_maintainer_view AS
 SELECT m.name, m.id, c.skill
