@@ -207,7 +207,7 @@ function initParams() {
     }
 }
 
-//update availability on db
+//update availability into db
 function updateDB() {
     $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/Crud_availabilityEWO.jsp",
         {
@@ -223,7 +223,16 @@ function updateDB() {
             avail_16to17: avail_16to17
         }, function (data) {
         }).done(function () {
-        location.href = "1_ShowActivities.html?week=" + week;
+        $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/Crud_inProgress.jsp",
+            {
+                specifications: specifications,
+                maintainer: idMaint,
+            }, function (data) {
+            }).done(function () {
+            location.href = "1_ShowActivities.html?week=" + week;
+        }).fail(function () {
+            alert("Error while inserting InProgress into database");
+        });
     }).fail(function () {
         alert("Error while updating database");
     });

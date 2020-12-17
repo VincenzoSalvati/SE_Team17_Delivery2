@@ -220,7 +220,7 @@ function initParams() {
 
 }
 
-//update availability on db
+//update availability into db
 function updateDB() {
     $.post("http://" + JAVA_TOMCAT_HOST + "/Esame/Crud_availability.jsp",
         {
@@ -238,4 +238,6 @@ function updateDB() {
     }).fail(function () {
         alert("Error while updating database");
     });
+
+
 }

@@ -24,6 +24,8 @@ insert into Activity (id, week, ewo, site, type, estim_time)
 values (5, 1, true, 'Nusco - Carpentery', 'Electric', 30);
 insert into Activity (id, week, ewo, site, type, estim_time)
 values (6, 1, true, 'Morra - Painting', 'Hydraulic', 250);
+insert into Activity (id, week, ewo, site, type, estim_time)
+values (7, 1, true, 'Fisciano - Molding', 'Electronics', 90);
 
 #Insert Specifications
 insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
@@ -54,6 +56,10 @@ insert into Specifications (id, work_note, int_des, id_activity, week_activity, 
 values (6,
         'The plant is closed from 00/00/22 to 00/00/22; On the remaining days, it is possible to intervene only after 12:00',
         'Replacement of robot 22 welding cables', 6, 1, true);
+insert into Specifications (id, work_note, int_des, id_activity, week_activity, ewo_activity)
+values (7,
+           'The plant is closed from 00/00/23 to 00/00/23; <br> On the remaining days, it is possible to intervene only after 13:00',
+           'Replacement of robot 23 welding cables', 7, 1, true);
 
 
 #Insert Skills
@@ -115,16 +121,6 @@ values (5, 3);
 insert into Need (specifications, skill)
 values (5, 4);
 
-insert into Need (specifications, skill)
-values (6, 0);
-insert into Need (specifications, skill)
-values (6, 1);
-insert into Need (specifications, skill)
-values (6, 2);
-insert into Need (specifications, skill)
-values (6, 4);
-
-
 #Insert Maintainer
 insert into Maintainer (id, name)
 values (0, 'Pippo');
@@ -155,17 +151,15 @@ values (2, 2);
 insert into Capacity (skill, maintainer)
 values (4, 2);
 
-
 #Insert InProgress
 insert into InProgress (specifications, maintainer, stateSpecif, stateDep, stateMaint)
 values (0, 0, 'Closed', 'Received', 'Sent');
 insert into InProgress (specifications, maintainer, stateSpecif, stateDep, stateMaint)
-values (1, 2, 'NotStarted', 'Sent', 'Received');
+values (1, 1, 'NotStarted', 'Sent', 'Received');
 insert into InProgress (specifications, maintainer, stateSpecif, stateDep, stateMaint)
-values (4, 0, 'Closed', 'Received', 'Sent');
+values (4, 0, 'Closed', 'Received', 'Read');
 insert into InProgress (specifications, maintainer, stateSpecif, stateDep, stateMaint)
-values (5, 2, 'NotStarted', 'Sent', 'Received');
-
+values (5, 2, 'InProgress', 'NotSent', 'Received');
 
 #Insert Availability Pippo
 insert into Availability (id, avail_8to9, avail_9to10, avail_10to11, avail_11to12, avail_14to15, avail_15to16,

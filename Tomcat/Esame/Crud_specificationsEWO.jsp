@@ -9,7 +9,7 @@
     String int_des = "0";
     int week = 0;
     int ewo = 0;
-
+    
     if (request.getParameter("id") != null && request.getParameter("estimate_tr") != null && request.getParameter("week") != null && request.getParameter("ewo") != null) {
         id = Integer.parseInt(request.getParameter("id"));
         estimate_tr = Integer.parseInt(request.getParameter("estimate_tr"));

@@ -2,7 +2,7 @@
 <%@ page import="JAVA.*" %>
 
 <%
-    MySqlDbConnection db = MySqlDbConnection.getInstance();
+	MySqlDbConnection db = MySqlDbConnection.getInstance();
 
     int week = 0;
 
