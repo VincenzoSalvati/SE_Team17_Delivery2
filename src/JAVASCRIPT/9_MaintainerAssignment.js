@@ -5,6 +5,6 @@ const id_maint = urlParams.get('user');
 console.log(id_maint)
 
 function logOut(){
-    location.href = "loginPage.html";
+    location.href = "0_LoginPage.html";
 }
 

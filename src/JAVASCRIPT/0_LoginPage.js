@@ -46,11 +46,11 @@ function getUserCredentials(){
         if(checkCredentials(userValue, passValue)){
             if(userValue==="1" || userValue==="2"|| userValue==="3") {
                 console.log('MAINTAINER LOGGED');
-                location.href = "MaintainerHomePage.html?user=" + userValue + "&pass=" + passValue;
+                location.href = "9_MaintainerHomePage.html?user=" + userValue + "&pass=" + passValue;
             }
             else{
                 console.log('PLANNER LOGGED');
-                location.href = "0_startPage.html?user="+userValue+"&pass="+passValue;
+                location.href = "0_StartPage.html?user="+userValue+"&pass="+passValue;
             }
         }else{
             console.log("PASSWORD INCORRECT " + userValue + " " + passValue);

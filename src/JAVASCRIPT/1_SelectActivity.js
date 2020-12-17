@@ -8,5 +8,5 @@ function selectActivity() {
 }
 
 function logOut(){
-    location.href = "loginPage.html";
+    location.href = "0_LoginPage.html";
 }
