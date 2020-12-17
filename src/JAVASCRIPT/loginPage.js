@@ -9,9 +9,9 @@ var passValue = "";
 var check = true;
 
 function initDict(){
-    dictCredentials["maint1"] = "pass1";
-    dictCredentials["maint2"] = "pass2";
-    dictCredentials["maint3"] = "pass3";
+    dictCredentials["1"] = "pass1";
+    dictCredentials["2"] = "pass2";
+    dictCredentials["3"] = "pass3";
     dictCredentials["root"] = "admin";
 }
 
@@ -22,7 +22,6 @@ function validatePass(passValue){
 var isCorrect = false;
 function checkCredentials(user, pass){
     for (var key in dictCredentials){
-        console.log('KEY ', key);
         if(user==key){
             if(dictCredentials[key]===pass){
                 isCorrect = true;
@@ -45,7 +44,14 @@ function getUserCredentials(){
 
     if(check){
         if(checkCredentials(userValue, passValue)){
-            location.href = "0_startPage.html?user="+userValue+"&pass="+passValue;
+            if(userValue==="1" || userValue==="2"|| userValue==="3") {
+                console.log('MAINTAINER LOGGED');
+                location.href = "MaintainerHomePage.html?user=" + userValue + "&pass=" + passValue;
+            }
+            else{
+                console.log('PLANNER LOGGED');
+                location.href = "0_startPage.html?user="+userValue+"&pass="+passValue;
+            }
         }else{
             console.log("PASSWORD INCORRECT " + userValue + " " + passValue);
             userValue = "";
