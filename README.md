@@ -16,8 +16,7 @@ Per un corretto funzionamento del programma, è necessario eseguire come primo f
 ## Login
 
 È possibile effettuare l'accesso al sistema in qualità di Planner o Maintainer. 
-Gli utenti registrati sono 2 Maintainer e 1 Planner. 
-Per autenticarsi è necessario inserire username e password (stringa maggiore di 5 caratteri). 
+In particolare, gli utenti registrati sono 2 Maintainer e 1 Planner e, per autenticarsi, è necessario inserire username e password (stringa maggiore di 5 caratteri). 
 
 Maintainer:
   - maintainer_1:
