@@ -1,6 +1,6 @@
 # SE_Team17_Delivery2
 
-## Componenti del Team 17
+## Componenti del Team17
 
 Alex Sorrentino: a.sorrentino120@studenti.unisa.it
 
