@@ -2,8 +2,11 @@
 
 ## Componenti del gruppo
 Alex Sorrentino: a.sorrentino120@studenti.unisa.it
+
 Daniele Silvitielli: d.silvitelli@studenti.unisa.it
+
 Flavia Martino: f.martino13@studenti.unisa.it
+
 Vincenzo Salvati: v.salvati10@studenti.unisa.it
 
 ## Init
