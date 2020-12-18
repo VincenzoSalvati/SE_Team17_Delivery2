@@ -15,7 +15,9 @@ Per un corretto funzionamento del programma, è necessario eseguire come primo f
 
 ## Login
 
-È possibile effettuare l'accesso al sistema in qualità di Planner o Maintainer. Per autenticarsi come Maintainer, è necessario inserire come Username l'id del Maintainer e come password, una stringa maggiore di 5 caratteri. Gli utenti registrati sono 2 Maintainer e 1 Planner. 
+È possibile effettuare l'accesso al sistema in qualità di Planner o Maintainer. 
+Gli utenti registrati sono 2 Maintainer e 1 Planner. 
+Per autenticarsi è necessario inserire username e password (stringa maggiore di 5 caratteri). 
 
 Maintainer:
   - maintainer_1:
@@ -31,21 +33,17 @@ Planner:
   - password: admin
 
 ## Start Page (only for Planner)
-L'unica scelta della settimana possibile è 'week 1' poichè le altre non sono presenti nel database e potrebbero verificarsi degli errori.
+L'unica scelta della settimana possibile è 'week 1' poichè le altre non sono presenti nel database.
 
 ## Tomcat
 
-Il contenuto della cartella Tomcat (in particolare la cartrella Esame) deve essere spostata nella propria directory "
-Tomcat/webapps" del prorpio server Tomcat.
+Il contenuto della cartella Tomcat (in particolare la cartrella Esame) deve essere spostata nella propria directory "Tomcat/webapps" del prorpio server Tomcat.
 
 ## Indirizzo IP server
 
-Va cambiata l'assegnazione della variabile JAVA_TOMCAT_HOST, nella directory "src/JAVASCRIPT/localhost.js", con
-l'indirizzo IP del proprio server.
+Va cambiata l'assegnazione della variabile JAVA_TOMCAT_HOST, nella directory "src/JAVASCRIPT/localhost.js", con l'indirizzo IP del proprio server.
 
 ## Database Initialization
 
-Per utilizzare il proprio database è necessario compilare le variabili stringa nella directory "
-/src/JAVA/MySqlDbConnection.java" con il driver usato, l'indirizzo del database con la relativa porta, i campi di
-autenticazione dell'utente (username e password) e il nome associato al database. 
+Per utilizzare il proprio database è necessario compilare le variabili stringa nella directory "/src/JAVA/MySqlDbConnection.java" con il driver usato, l'indirizzo del database con la relativa porta, i campi di autenticazione dell'utente (username e password) e il nome associato al database. 
 Inoltre, è necessario eseguire gli script presenti nel package "MySQL" per creare e inizializzare il database.
