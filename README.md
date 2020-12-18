@@ -46,3 +46,7 @@ Va cambiata l'assegnazione della variabile JAVA_TOMCAT_HOST, nella directory "sr
 
 Per utilizzare il proprio database è necessario compilare le variabili stringa nella directory "/src/JAVA/MySqlDbConnection.java" con il driver usato, l'indirizzo del database con la relativa porta, i campi di autenticazione dell'utente (username e password) e il nome associato al database. 
 Inoltre, è necessario eseguire gli script presenti nel package "MySQL" per creare e inizializzare il database.
+
+## Architecture
+
+La cartella "Diagram and Model" contiene i diagrammi e i modelli utilizzati per implementare l'architettura del progetto
