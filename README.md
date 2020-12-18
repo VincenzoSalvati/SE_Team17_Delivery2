@@ -33,6 +33,7 @@ Planner:
   - password: admin
 
 ## Start Page (only for Planner)
+
 L'unica scelta della settimana possibile è 'week 1' poichè le altre non sono presenti nel database.
 
 ## Tomcat
