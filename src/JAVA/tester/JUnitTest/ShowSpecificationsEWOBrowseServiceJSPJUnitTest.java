@@ -26,7 +26,7 @@ public class ShowSpecificationsEWOBrowseServiceJSPJUnitTest extends TestCase {
 
     @Order(2)
     public final void testGetShowSpecificationsBrowseToJSONJSP() {
-        String jsonResultExpected = "[{\"id\":\"4\",\"work_note\":\"The plant is closed from 00/00/20 to 00/00/20; On the remaining days, it is possible to intervene only after 10:00\",\"int_des\":\"Replacement of robot 20 welding cables\",\"id_activity\":\"EWO 4 - Fisciano - Molding\",\"week_activity\":\"1\",\"ewo_activity\":\"true\",\"estimate_tr\":\"120\"}]";
+        String jsonResultExpected="[{\"id\":\"4\",\"work_note\":\"Plant stopped from 12:23 p.m. pending intervention. Smoke from the XX4 compressor as a result of loud noise.\",\"int_des\":\"Replacement of robot 20 welding cables\",\"id_activity\":\"EWO 4 - Fisciano - Molding\",\"week_activity\":\"1\",\"ewo_activity\":\"true\",\"estimate_tr\":\"120\"}]";
         String jsonResultActual = service.getShowSpecificationsEWOBrowseToJSONJSP(db, 4, 1);
         assertEquals(jsonResultExpected, jsonResultActual);
         String jsonResultActual2 = service.getShowSpecificationsEWOBrowseToJSONJSP(db, 5, 1);
