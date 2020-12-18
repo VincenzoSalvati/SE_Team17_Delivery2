@@ -1,3 +1,5 @@
+# noinspection SqlResolveForFile
+
 use project;
 
 #drop view maintainer_assignment cascade;
